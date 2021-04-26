@@ -26,5 +26,13 @@ def re2():
 def re1():
     return render_template("第一展区.html")
 
+@app.route("/BBS")
+def BBS():
+    return render_template("BBS.html")
+
+@app.route("/signin")
+def signin():
+    return render_template("sign-in.html")
+
 if __name__ == "__main__":
     app.run(host='0.0.0.0',port=5003)

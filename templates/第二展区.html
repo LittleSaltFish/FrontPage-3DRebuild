@@ -2,20 +2,23 @@
 <html lang="en">
 
 <head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="">
-	<meta name="author" content="">
-	<link rel="icon" href="{{url_for('static', filename='pic/相机.ico')}}">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="{{url_for('static', filename='pic/相机.ico')}}">
 
-	<title>在线校史馆</title>
+    <title>在线校史馆</title>
 
-	<!-- Bootstrap core CSS -->
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
-		crossorigin="anonymous">
-		<!-- Custom styles for this template -->
-		<link href="{{url_for('static', filename='css/blog.css')}}" rel="stylesheet">
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+
+
+    <!-- Custom styles for this template -->
+    <link href="{{url_for('static', filename='css/BBS.css')}}" rel="stylesheet">
+    <link href="{{url_for('static', filename='css/blog.css')}}" rel="stylesheet">
 </head>
 
 <body>
@@ -43,11 +46,7 @@
         <div class="navbar navbar-dark bg-dark shadow-sm">
             <div class="container d-flex justify-content-between">
                 <a href="/" class="navbar-brand d-flex align-items-center">
-                    <!-- <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor"
-                        stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true" class="mr-2"
-                        editBox="0 0 24 24" focusable="false">
-                        <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z" />
-                        <circle cx="12" cy="13" r="4" /></svg> -->
+
                     <strong>武汉理工大学校史馆</strong>
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader"
@@ -58,64 +57,90 @@
         </div>
     </header>
 
+    <div class="nav-scroller bg-white shadow-sm">
+        <div class="container">
+            <nav class="nav nav-underline">
+                <a class="nav-link active" href="#">欢迎，访客！</a>
+                <a class="nav-link pull-right" href="/signin">登录/注册</a>
+                <a class="nav-link" href="/BBS">进入论坛</a>
+                <a class="nav-link" href="#">
+                    未读通知
+                    <span class="badge badge-pill bg-light align-text-bottom">27</span>
+                </a>
+                <!-- <a class="nav-link" href="#"></a> -->
+                <a class="nav-link" href="#">我的好友</a>
+                <a class="nav-link" href="#">所在组织</a>
+                <a class="nav-link" href="#">我的模型</a>
+                <!-- <a class="nav-link" href="#">Link</a>
+                <a class="nav-link" href="#">Link</a> -->
+            </nav>
+        </div>
+    </div>
 
-	<div class="container">
+    <div class="container">
 
-		<div class="blog-header">
-			<h1 class="blog-title">校史馆-武汉交通科技大学-详情</h1>
-			<p class="lead blog-description">凤凰鸣矣，于彼高岗；梧桐生矣，于彼朝阳。追求卓越，其道大昌；修史建馆，永志勿忘。</p>
-		</div>
+        <div class="blog-header">
+            <h1 class="blog-title">校史馆-武汉交通科技大学-详情</h1>
+            <p class="lead blog-description">凤凰鸣矣，于彼高岗；梧桐生矣，于彼朝阳。追求卓越，其道大昌；修史建馆，永志勿忘。</p>
+        </div>
 
-		<div class="row">
+        <div class="row">
 
-			<div class="col-sm-8 blog-main">
+            <div class="col-sm-8 blog-main">
 
-				<div class="blog-post">
+                <div class="blog-post">
 
-					<h1 class="blog-post-title">厚德博学-追求卓越</h1>
-					<p class="blog-post-meta">April 1, 2021 </p>
+                    <h1 class="blog-post-title">厚德博学-追求卓越</h1>
+                    <p class="blog-post-meta">April 1, 2021 </p>
 
-					<em>学校起源于1946年建立的国立海事职业学校，1957年改名为武汉水运工程学院，1992年与武汉河运专科学校合并，1993年更名为武汉交通科技大学。到2000年，共走过了54年的发展历史。
+                    <em>学校起源于1946年建立的国立海事职业学校，1957年改名为武汉水运工程学院，1992年与武汉河运专科学校合并，1993年更名为武汉交通科技大学。到2000年，共走过了54年的发展历史。
                     </em>
-					<hr>
+                    <hr>
 
-					<h2 id="1">发展历程一 筚路蓝缕 水运奠基（1946—1957）</h2>
-					<h3>从国立海事职业学校到武汉水运工程学院的建立</h3>
-					<h4>扬帆起航——国立海事职业学校</h4>
-					<p>1945年，随着抗日战争的伟大胜利，国家百废待兴，航运事业亟待建设发展。国民政府教育部任命刘开坤负责筹办海事职业学校。1946年１月１日，国立海事职业学校举行开学典礼，校址设在武昌下新河。</p>
-					<p>学校“以培植中等海事技术人才，促进海事建设为宗旨”，设轮机、驾驶、造船3科，学制均为3年。1945年12月—1948年8月，共招收3期438名学生</p>
-					<h4>接管合并——武汉交通学院</h4>
-					<p>1949年5月，武汉解放，国立海事职业学校由武汉市军管会交通接管部接管。同年中原临时人民政府开办交通学院，国立海事职业学校合并到交通学院，在海事职业学校旧址设立航业系。1951年学校更名为中央人民政府交通部武汉交通学院。</p>
-					<h4>院系调整——武汉河运学院</h4>
-					<p>1952年，全国进行高等学校院系调整，学校改为以培养内河交通运输高级技术人才为主的河运学院。</p>
-					<h4>专题：建功万山海战</h4>
-					<p>1950年3月，交通学院6名教职工和22名驾驶、轮机科学生（含毕业生）加入武汉海员参战大队，赴广东参加解放万山群岛战役，不少学生立功受奖。</p>
+                    <h2 id="1">发展历程一 筚路蓝缕 水运奠基（1946—1957）</h2>
+                    <h3>从国立海事职业学校到武汉水运工程学院的建立</h3>
+                    <h4>扬帆起航——国立海事职业学校</h4>
+                    <p>1945年，随着抗日战争的伟大胜利，国家百废待兴，航运事业亟待建设发展。国民政府教育部任命刘开坤负责筹办海事职业学校。1946年１月１日，国立海事职业学校举行开学典礼，校址设在武昌下新河。
+                    </p>
+                    <p>学校“以培植中等海事技术人才，促进海事建设为宗旨”，设轮机、驾驶、造船3科，学制均为3年。1945年12月—1948年8月，共招收3期438名学生</p>
+                    <h4>接管合并——武汉交通学院</h4>
+                    <p>1949年5月，武汉解放，国立海事职业学校由武汉市军管会交通接管部接管。同年中原临时人民政府开办交通学院，国立海事职业学校合并到交通学院，在海事职业学校旧址设立航业系。1951年学校更名为中央人民政府交通部武汉交通学院。
+                    </p>
+                    <h4>院系调整——武汉河运学院</h4>
+                    <p>1952年，全国进行高等学校院系调整，学校改为以培养内河交通运输高级技术人才为主的河运学院。</p>
+                    <h4>专题：建功万山海战</h4>
+                    <p>1950年3月，交通学院6名教职工和22名驾驶、轮机科学生（含毕业生）加入武汉海员参战大队，赴广东参加解放万山群岛战役，不少学生立功受奖。</p>
 
-					<h2 id="2">发展历程二 风雨磨砺 矢志笃行（1957—1977）</h2>
-					<h3>在调整中前进的武汉水运工程学院</h3>
-					<p><b>1957年学校改名为武汉水运工程学院，学校进入一个新的发展阶段。</b></p>
-                    <p>随着办学规模不断扩大，学校在武昌余家头兴建了新校园。1963年，交通部对部属高等院校进行专业调整后，学校主要培养船舶工程、船机设计制造与修理、港口起重运输机械设计制造与管理维修方面的高级技术及管理人才。文化大革命中，连续五年停止招生。1971年开始招收工农兵学员至1976年。</p>
+                    <h2 id="2">发展历程二 风雨磨砺 矢志笃行（1957—1977）</h2>
+                    <h3>在调整中前进的武汉水运工程学院</h3>
+                    <p><b>1957年学校改名为武汉水运工程学院，学校进入一个新的发展阶段。</b></p>
+                    <p>随着办学规模不断扩大，学校在武昌余家头兴建了新校园。1963年，交通部对部属高等院校进行专业调整后，学校主要培养船舶工程、船机设计制造与修理、港口起重运输机械设计制造与管理维修方面的高级技术及管理人才。文化大革命中，连续五年停止招生。1971年开始招收工农兵学员至1976年。
+                    </p>
                     <p>这一时期，伴随着国家高等教育的曲折发展，学校历经磨砺，矢志前行。在不断的发展中，逐渐形成以船舶机械、船舶工程、港口机械为特色的专业体系，为改革开放后学校的快速发展打下了基础。</p>
                     <p><b>余家头新校园建设</b></p>
-                    <p>1956年开始，学校在武昌余家头兴建新校园，1965年，学校本部从下新河迁至新校址。新校园仿原苏联列宁格勒水运工程学院设计，由苏联专家参与设计建设。1962年，7层教学大楼、大礼堂、学生1号宿舍竣工。</p>
+                    <p>1956年开始，学校在武昌余家头兴建新校园，1965年，学校本部从下新河迁至新校址。新校园仿原苏联列宁格勒水运工程学院设计，由苏联专家参与设计建设。1962年，7层教学大楼、大礼堂、学生1号宿舍竣工。
+                    </p>
                     <p>2016年，1962年竣工的武汉水运工程学院教学大楼被列为武汉市第十批一级优秀历史建筑。</p>
                     <p><b>专业调整与设置</b></p>
-                    <p>1963年和1965年交通部属高等院校专业调整，大连海运学院的造船、内燃机、船机修造专业，上海海运学院的船机、起重运输机械专业调入学院。集中了几大院校船机船舶和港机的师资力量及专业队伍，学校在水运工程领域不断发展，形成自身的优势和鲜明的专业特色。</p>
+                    <p>1963年和1965年交通部属高等院校专业调整，大连海运学院的造船、内燃机、船机修造专业，上海海运学院的船机、起重运输机械专业调入学院。集中了几大院校船机船舶和港机的师资力量及专业队伍，学校在水运工程领域不断发展，形成自身的优势和鲜明的专业特色。
+                    </p>
                     <p><b>师资培养与聘请苏联专家</b></p>
-                    <p>学校制订师资培养计划，着力培养教师队伍。学校聘请了苏联列宁格勒水运工程学院副教授、科技副博士卡桑采夫和苏联气力运输机及连续运输机专家纳列姆斯基来讲学，两名苏联专家为学校培养了40多名研究生和10多名进修教师。</p>
+                    <p>学校制订师资培养计划，着力培养教师队伍。学校聘请了苏联列宁格勒水运工程学院副教授、科技副博士卡桑采夫和苏联气力运输机及连续运输机专家纳列姆斯基来讲学，两名苏联专家为学校培养了40多名研究生和10多名进修教师。
+                    </p>
                     <p>除苏联专家外，1958年聘请波兰专家维乔列克来校讲授《船机制造与修理工艺》。</p>
                     <p>1960年，学校从55级船舶机械、水运经济、港口机械毕业生中选留18名学生，开设研究生班。学生毕业后留校任教，充实了教师队伍。</p>
                     <p><b>这一时期，学校文体活动也取得了较好的成绩。</b>1965年1月，学校400余名师生在大礼堂演出大型音乐舞蹈史诗《东方红》，湖北省委第一书记王任重及武汉市、交通部领导观看了演出。</p>
                     <p><b>招收工农兵学员</b></p>
                     <p>1971年学校开始招收工农兵学员，到1976年，共招收6届1700余名工农兵学员。</p>
-                    
+
                     <h2 id="3">发展历程三 与时俱进 谱写新章（1977—2000）</h2>
                     <h3>1. 改革开放新时期的武汉水运工程学院（1977—1992）</h3>
                     <p>改革开放，正本清源。武汉水运工程学院进入改革开放新时期。</p>
                     <p>学校恢复正常教学秩序 教育教学走上正轨。坚持教学科研两个中心 学校建设再上台阶。</p>
                     <h3>2.面向新世纪的武汉交通科技大学（1992—2000）</h3>
-                    <p>1992年7月，武汉水运工程学院和武汉河运专科学校合并，1993年更名为武汉交通科技大学。1996年10月，学校举行建校50周年庆典，同年12月，交通部与湖北省人民政府共建武汉交通科技大学。1997年9月，学校通过交通部组织的重点学科建设规划及部级重点学科评审，船舶与海洋结构物设计制造、轮机工程、机械设计及理论3个学科被确认为交通部部级重点学科。</p>
-                    
+                    <p>1992年7月，武汉水运工程学院和武汉河运专科学校合并，1993年更名为武汉交通科技大学。1996年10月，学校举行建校50周年庆典，同年12月，交通部与湖北省人民政府共建武汉交通科技大学。1997年9月，学校通过交通部组织的重点学科建设规划及部级重点学科评审，船舶与海洋结构物设计制造、轮机工程、机械设计及理论3个学科被确认为交通部部级重点学科。
+                    </p>
+
                 </div>
 
                 <nav>
@@ -149,27 +174,31 @@
 
     </div><!-- /.container -->
 
-    <footer class="blog-footer">
-        <p>地址：湖北省武汉市珞狮路122号</p>
-        <p>邮编：430070</p>
+
+    <footer class="text-muted text-center">
+        <div class="container">
+            <p class="float-right">
+                <a href="#">回到顶部</a>
+            </p>
+            <em>凤凰鸣矣，于彼高岗；梧桐生矣，于彼朝阳。追求卓越，其道大昌；修史建馆，永志勿忘。</em>
+            <p>地址：湖北省武汉市珞狮路122号</p>
+            <p>邮编：430070</p>
+        </div>
     </footer>
 
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+    </script>
     <script>
         window.jQuery || document.write(
             '<script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.12.2/jquery.slim.min.js"><\/script>')
 
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-LCPyFKQyML7mqtS+4XytolfqyqSlcbB3bvDuH9vX2sdQMxRonb/M3b9EmhCNNNrV" crossorigin="anonymous">
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

@@ -7,7 +7,7 @@
     <meta name="description" content=""> -->
     <!-- <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors"> -->
     <!-- <meta name="generator" content="Hugo 0.80.0"> -->
-	<link rel="icon" href="{{url_for('static', filename='pic/相机.ico')}}">
+    <link rel="icon" href="{{url_for('static', filename='pic/相机.ico')}}">
     <title>在线校史馆</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/4.6/examples/album/">
@@ -38,7 +38,9 @@
     </style>
 
 
+
     <!-- Custom styles for this template -->
+    <link href="{{url_for('static', filename='css/BBS.css')}}" rel="stylesheet">
     <link href="{{ url_for('static', filename = 'css/album.css')}}" rel="stylesheet">
 </head>
 
@@ -67,11 +69,7 @@
         <div class="navbar navbar-dark bg-dark shadow-sm">
             <div class="container d-flex justify-content-between">
                 <a href="#" class="navbar-brand d-flex align-items-center">
-                    <!-- <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor"
-                        stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true" class="mr-2"
-                        editBox="0 0 24 24" focusable="false">
-                        <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z" />
-                        <circle cx="12" cy="13" r="4" /></svg> -->
+
                     <strong>武汉理工大学校史馆</strong>
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader"
@@ -81,6 +79,24 @@
             </div>
         </div>
     </header>
+
+    <div class="nav-scroller bg-white shadow-sm">
+        <div class="container">
+            <nav class="nav nav-underline">
+                <a class="nav-link active" href="#">欢迎，访客！</a>
+                <a class="nav-link pull-right" href="/signin">登录/注册</a>
+                <a class="nav-link" href="/BBS">进入论坛</a>
+                <a class="nav-link" href="#">
+                    未读通知
+                    <span class="badge badge-pill bg-light align-text-bottom">27</span>
+                </a>
+                <a class="nav-link" href="#">我的好友</a>
+                <a class="nav-link" href="#">所在组织</a>
+                <a class="nav-link" href="#">我的模型</a>
+                <!-- <a class="nav-link" href="#">Link</a> -->
+                </nav>
+        </div>
+    </div>
 
     <main role="main">
 
@@ -169,8 +185,8 @@
                     </div>
                     <div class="col-md-6">
                         <div class="card mb-4 shadow-sm">
-                            <img src="https://z3.ax1x.com/2021/04/21/cbxRRe.jpg"
-                                class="bd-placeholder-img card-img-top" width="100%" height="450">
+                            <img src="https://z3.ax1x.com/2021/04/21/cbxRRe.jpg" class="bd-placeholder-img card-img-top"
+                                width="100%" height="450">
 
                             <div class="card-body">
                                 <p class="card-text">第二展区-武汉交通科技大学展区</p>
@@ -228,7 +244,7 @@
 
     </main>
 
-    <footer class="text-muted">
+    <footer class="text-muted text-center">
         <div class="container">
             <p class="float-right">
                 <a href="#">回到顶部</a>
