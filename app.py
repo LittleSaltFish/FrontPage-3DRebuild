@@ -34,5 +34,13 @@ def BBS():
 def signin():
     return render_template("sign-in.html")
 
+@app.route("/monitor")
+def monitor():
+    return render_template("Admin-Charts.html")
+
+@app.route("/database")
+def database():
+    return render_template("Admin-Tables.html")
+
 if __name__ == "__main__":
     app.run(host='0.0.0.0',port=5003)
