@@ -1,0 +1,234 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="{% static 'pic/相机.ico' %}">
+
+    <title>在线校史馆</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <!-- Custom styles for this template -->
+    <link href="{% static 'css/BBS.css' %}" rel="stylesheet">
+
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+
+    </style>
+</head>
+
+<body class="bg-light">
+
+    <header>
+        <nav class="collapse bg-dark" id="navbarHeader">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-8 col-md-7 py-4">
+                        <h4 class="text-white">About</h4>
+                        <p class="text-muted">
+                            绵延120余载的办学历史，夯实了武汉理工大学持续发展的强大基础；合并组建20年的办学成就，书写了武汉理工大学跨越发展的辉煌篇章。校史馆从2000年5月27日起，至2019年12月31日止。以历程篇、成就篇、人物篇三个部分反映学校的发展历程，呈现20年的建设成就，展示理工大人奋发向上的精神风貌。
+                        </p>
+                    </div>
+                    <div class="col-sm-4 offset-md-1 py-4">
+                        <h4 class="text-white">Contact</h4>
+                        <ul class="list-unstyled">
+                            <li><a href="#" class="text-light">地址：湖北省武汉市珞狮路122号</a></li>
+                            <li><a href="#" class="text-light">邮编：430070</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <div class="navbar navbar-dark bg-dark shadow-sm">
+            <div class="container d-flex justify-content-between">
+                <a href="/" class="navbar-brand d-flex align-items-center">
+
+                    <strong>武汉理工大学校史馆</strong>
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader"
+                    aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+
+
+    <div class="nav-scroller bg-white shadow-sm">
+        <div class="container">
+            <nav class="nav nav-underline">
+                <a class="nav-link active" href="#">欢迎，访客！</a>
+                <a class="nav-link pull-right" href="/signin">登录/注册</a>
+                <a class="nav-link" href="/BBS">进入论坛</a>
+                <a class="nav-link" href="#">
+                    未读通知
+                    <span class="badge badge-pill bg-light align-text-bottom">27</span>
+                </a>
+                <!-- <a class="nav-link" href="#"></a> -->
+                <a class="nav-link" href="#">我的好友</a>
+                <a class="nav-link" href="#">所在组织</a>
+                <a class="nav-link" href="#">我的模型</a>
+                <!-- <a class="nav-link" href="#">Link</a>
+                <a class="nav-link" href="#">Link</a> -->
+            </nav>
+        </div>
+    </div>
+
+    <main role="main" class="container">
+        <div class="d-flex align-items-center p-3 my-3 bg-white rounded shadow-sm">
+            <img class="mr-3" src="https://img.imgdb.cn/item/6086d115d1a9ae528fb01908.jpg" alt="" width="48"
+                height="48">
+            <div class="lh-100">
+                <h6 class="mb-0 text-black lh-100">校史馆讨论组</h6>
+                <small>实施卓越教育、培养卓越人才、创造卓越人生</small>
+            </div>
+        </div>
+
+        <div class="my-3 p-3 bg-white rounded shadow-sm">
+            <h6 class="border-bottom border-gray pb-2 mb-0">最近更新</h6>
+            <div class="media text-muted pt-3">
+
+                <img src="https://pic2.zhimg.com/v2-7ff800975ab9cac63295b786668d467a_xl.jpg"
+                    class="bd-placeholder-img mr-2 rounded" width="32" height="32">
+
+                <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+                    <strong class="d-block text-gray-dark">匿名</strong>
+                    文化是旅游的灵魂，红色革命历史为中华民族精神宝库增添了重要的一笔。专家指出，发展红色旅游，关键是要深入挖掘红色精神财富，思考如何将革命历史、革命传统和革命精神在旅游中传递给广大人民群众，从而更好地传承革命文化。
+                </p>
+            </div>
+            <div class="media text-muted pt-3">
+                <img src="https://pic4.zhimg.com/50/v2-0ea3bc072607967e475fff312f8a859e_xs.jpg?source=54b3c3a5"
+                    class="bd-placeholder-img mr-2 rounded" width="32" height="32">
+
+                <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+                    <strong class="d-block text-gray-dark">来生要做一棵树</strong>
+                    作为一种以爱国主义与革命传统教育为宗旨的旅游产品，红色旅游应该围绕红色主题，营造氛围、深化体验、寓教于游，切不可随意让‘产业化’‘市场化’削弱了文化主题和公益性质，使其背离了开展红色旅游的‘初心’。
+                </p>
+            </div>
+            <div class="media text-muted pt-3">
+                <img src="https://pic1.zhimg.com/100/v2-a2dba10266bae3f316145d3d4730cde2_r.jpeg?source=1940ef5c"
+                    class="bd-placeholder-img mr-2 rounded" width="32" height="32">
+
+                <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+                    <strong class="d-block text-gray-dark">大学生一枚</strong>
+                    将三维重建、VR、AR等现代科技融入红色故事的讲解中，能让游客身临其境地体会到革命先烈的艰难困苦与英勇无畏，让红色历史成为‘可以穿越的历史’与‘可以透视的故事’。
+                </p>
+            </div>
+            <small class="d-block text-right mt-3">
+                <a href="#">所有记录</a>
+            </small>
+        </div>
+
+        <div class="my-3 p-3 bg-white rounded shadow-sm">
+            <h6 class="border-bottom border-gray pb-2 mb-0">所有评论</h6>
+            <div class="media text-muted pt-3">
+                <img src="https://pic2.zhimg.com/100/v2-ed0623cfa55c92c33e212c846f07d4e8_r.jpeg?source=1940ef5c"
+                    class="bd-placeholder-img mr-2 rounded" width="32" height="32">
+
+                <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+                    <div class="d-flex justify-content-between align-items-center w-100">
+                        <strong class="text-gray-dark">不墨迹</strong>
+                        <a href="#">+关注</a>
+                    </div>
+                    <span class="d-block w-75">红色旅游可以和自然景观、历史景观和人文景观紧密结合在一起，兼顾政治性和市场性，避免庸俗化。</span>
+                </div>
+            </div>
+            <div class="media text-muted pt-3">
+                <img src="https://pic1.zhimg.com/100/v2-34a2daeef9a46b9895a4f71cc814a610_r.jpeg?source=1940ef5c"
+                    class="bd-placeholder-img mr-2 rounded" width="32" height="32">
+
+                <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+                    <div class="d-flex justify-content-between align-items-center w-100">
+                        <strong class="text-gray-dark">理想主义接班人</strong>
+                        <a href="#">+关注</a>
+                    </div>
+                    <span
+                        class="d-block w-75">红色旅游已成为我国整个旅游业的重要方面，要力戒红色旅游中的低俗、庸俗、恶俗现象，寓教于游，让游客通过参加红色旅游真正感受革命历史文化，领略革命历史精神，接受革命传统教育。</span>
+                </div>
+            </div>
+            <div class="media text-muted pt-3">
+                <img src="https://pic1.zhimg.com/50/v2-2d001c7363041bc8d3e5e0a2d0d1b98b_xs.jpg?source=54b3c3a5"
+                    class="bd-placeholder-img mr-2 rounded" width="32" height="32">
+
+                <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+                    <div class="d-flex justify-content-between align-items-center w-100">
+                        <strong class="text-gray-dark">Tango</strong>
+                        <a href="#">+关注</a>
+                    </div>
+                    <span class="d-block w-75">对我们共产党人来说，中国革命历史是最好的营养剂。多重温这些伟大历史，心中就会增加很多正能量。</span>
+                </div>
+            </div>
+            <small class="d-block text-right mt-3">
+                <a href="#">热门评论</a>
+            </small>
+        </div>
+        <form method="post" action="">
+            <div class="my-3 p-3 bg-white rounded shadow-sm">
+                <h6 class="border-bottom border-gray pb-2 mb-3">添加评论</h6>
+                <!-- <input class="editor" name="content" id="content"> -->
+                <textarea id="comment" name="comment_content"></textarea>
+            </div>
+            <div class="text-center">
+                <button type="submit" class="btn btn-success btn-lg btn-block mb-3">提交</button>
+            </div>
+        </form>
+    </main>
+
+    <footer class="text-muted text-center">
+        <div class="container">
+            <p class="float-right">
+                <a href="#">回到顶部</a>
+            </p>
+            <em>凤凰鸣矣，于彼高岗；梧桐生矣，于彼朝阳。追求卓越，其道大昌；修史建馆，永志勿忘。</em>
+            <p>地址：湖北省武汉市珞狮路122号</p>
+            <p>邮编：430070</p>
+        </div>
+    </footer>
+
+    <script src="{% static 'tinymce/tinymce.min.js' %}"></script>
+    <script>
+        tinymce.init({
+            selector:'textarea',
+            height: 500,
+            language: "zh_CN",
+            plugins:
+            "advlist,autolink,lists,link,image,charmap,print,preview,anchor,visualblocks,code,fullscreen,insertdatetime,media,table,paste,bbcode,help,wordcount,toc,link,autosave",
+        })
+    </script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+    </script>
+    <script>
+        window.jQuery || document.write(
+            '<script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.12.2/jquery.slim.min.js"><\/script>')
+
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+
+
+    <link href="{% static 'js/BBS.js' %}" rel="stylesheet">
+</body>
+
+</html>
