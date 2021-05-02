@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="{{url_for('static', filename='pic/相机.ico')}}">
+    <link rel="icon" href="{% static 'pic/相机.ico' %}">
 
     <title>在线校史馆</title>
 
@@ -15,7 +17,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
         integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
     <!-- Custom styles for this template -->
-    <link href="{{url_for('static', filename='css/BBS.css')}}" rel="stylesheet">
+    <link href="{% static 'css/BBS.css' %}" rel="stylesheet">
 
     <style>
         .bd-placeholder-img {
@@ -185,7 +187,8 @@
         <form method="post" action="">
             <div class="my-3 p-3 bg-white rounded shadow-sm">
                 <h6 class="border-bottom border-gray pb-2 mb-3">添加评论</h6>
-                <input class="editor" name="content" id="content">
+                <!-- <input class="editor" name="content" id="content"> -->
+                <textarea id="comment" name="comment_content"></textarea>
             </div>
             <div class="text-center">
                 <button type="submit" class="btn btn-success btn-lg btn-block mb-3">提交</button>
@@ -204,8 +207,16 @@
         </div>
     </footer>
 
-    <script src="{{ url_for('static', filename='tinymce/js/tinymce/tinymce.min.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/tinymce_setup.js') }}"></script>
+    <script src="{% static 'tinymce/tinymce.min.js' %}"></script>
+    <script>
+        tinymce.init({
+            selector:'textarea',
+            height: 500,
+            language: "zh_CN",
+            plugins:
+            "advlist,autolink,lists,link,image,charmap,print,preview,anchor,visualblocks,code,fullscreen,insertdatetime,media,table,paste,bbcode,help,wordcount,toc,link,autosave",
+        })
+    </script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
     </script>
@@ -217,7 +228,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
 
 
-    <link href="{{url_for('static', filename='js/BBS.js')}}" rel="stylesheet">
+    <link href="{% static 'js/BBS.js' %}" rel="stylesheet">
 </body>
 
 </html>

@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="{{url_for('static', filename='pic/相机.ico')}}">
+    <link rel="icon" href="{% static 'pic/相机.ico' %}">
 
     <title>在线校史馆</title>
 
@@ -16,8 +18,8 @@
         integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
 
     <!-- Custom styles for this template -->
-    <link href="{{url_for('static', filename='css/BBS.css')}}" rel="stylesheet">
-    <link href="{{url_for('static', filename='css/blog.css')}}" rel="stylesheet">
+    <link href="{% static 'css/BBS.css' %}" rel="stylesheet">
+    <link href="{% static 'css/blog.css' %}" rel="stylesheet">
 </head>
 
 <body>

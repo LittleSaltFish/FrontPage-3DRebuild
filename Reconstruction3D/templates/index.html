@@ -1,3 +1,5 @@
+{% load static %}
+
 <!doctype html>
 <html lang="en">
 
@@ -7,7 +9,7 @@
     <meta name="description" content=""> -->
     <!-- <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors"> -->
     <!-- <meta name="generator" content="Hugo 0.80.0"> -->
-    <link rel="icon" href="{{url_for('static', filename='pic/相机.ico')}}">
+    <link rel="icon" href="{% static 'pic/相机.ico' %}">
     <title>在线校史馆</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/4.6/examples/album/">
@@ -40,8 +42,8 @@
 
 
     <!-- Custom styles for this template -->
-    <link href="{{url_for('static', filename='css/BBS.css')}}" rel="stylesheet">
-    <link href="{{ url_for('static', filename = 'css/album.css')}}" rel="stylesheet">
+    <link href="{% static 'css/BBS.css' %}" rel="stylesheet">
+    <link href="{% static 'css/album.css' %}" rel="stylesheet">
 </head>
 
 <body>
