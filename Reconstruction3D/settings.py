@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "tinymce",
+    "user"
 ]
 
 MIDDLEWARE = [
@@ -138,3 +138,5 @@ TINYMCE_DEFAULT_CONFIG = {
     "language": "zh_CN",
     "plugins": "advlist,autolink,lists,link,image,charmap,print,preview,anchor,visualblocks,code,fullscreen,insertdatetime,media,table,paste,bbcode,help,wordcount,toc,link,autosave",
 }
+
+# LOGIN_URL = "/login"

@@ -1,3 +1,12 @@
 {
-    "python.pythonPath": "D:\\Anaconda\\python.exe"
+    "python.pythonPath": "D:\\Anaconda\\python.exe",
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "driver": "SQLite",
+            "database": "${workspaceFolder:FrontPage-3DRebuild}/db.sqlite3",
+            "name": "Reconstruction3D"
+        }
+    ],
+    "sqltools.useNodeRuntime": true
 }

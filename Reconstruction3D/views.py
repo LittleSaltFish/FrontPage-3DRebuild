@@ -1,5 +1,12 @@
 from django.http import HttpResponse
 from django.shortcuts import render
+from django.contrib import auth
+from django.contrib.auth.hashers import make_password, check_password
+from django.contrib.auth.models import User
+from django.http import HttpResponseRedirect, HttpResponse
+
+# Create your views here.
+from django.contrib.auth.models import User
 
 def home(request):
     return render(request,"index.html")
@@ -19,16 +26,9 @@ def zone1(request):
 def BBS(request):
     return render(request,"BBS.html")
 
-def signin(request):
-    return render(request,"sign-in.html")
-
 def monitor(request):
     return render(request,"Admin-Charts.html")
 
 def database(request):
     return render(request,"Admin-Tables.html")
- 
-def hello(request):
-    context          = {}
-    context['hello'] = 'Hello World!'
-    return render(request, 'runoob.html', context)
+
