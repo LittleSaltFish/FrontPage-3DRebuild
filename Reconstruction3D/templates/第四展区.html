@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,17 +9,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="{{url_for('static', filename='pic/相机.ico')}}">
+    <link rel="icon" href="{% static 'pic/相机.ico' %}">
 
     <title>在线校史馆</title>
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
         integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-    
+
     <!-- Custom styles for this template -->
-    <link href="{{url_for('static', filename='css/BBS.css')}}" rel="stylesheet">
-    <link href="{{url_for('static', filename='css/blog.css')}}" rel="stylesheet">
+    <link href="{% static 'css/BBS.css' %}" rel="stylesheet">
+    <link href="{% static 'css/blog.css' %}" rel="stylesheet">
 </head>
 
 <body>
@@ -57,23 +59,23 @@
         </div>
     </header>
 
-<div class="nav-scroller bg-white shadow-sm">
-    <div class="container">
-        <nav class="nav nav-underline">
-            <a class="nav-link active" href="#">欢迎，访客！</a>
-            <a class="nav-link" href="#">
-                未读通知
-                <span class="badge badge-pill bg-light align-text-bottom">27</span>
-            </a>
-            <!-- <a class="nav-link" href="#"></a> -->
-            <a class="nav-link" href="#">我的好友</a>
-            <a class="nav-link" href="#">所在组织</a>
-            <a class="nav-link" href="#">我的模型</a>
-            <!-- <a class="nav-link" href="#">Link</a>
+    <div class="nav-scroller bg-white shadow-sm">
+        <div class="container">
+            <nav class="nav nav-underline">
+                <a class="nav-link active" href="#">欢迎，访客！</a>
+                <a class="nav-link" href="#">
+                    未读通知
+                    <span class="badge badge-pill bg-light align-text-bottom">27</span>
+                </a>
+                <!-- <a class="nav-link" href="#"></a> -->
+                <a class="nav-link" href="#">我的好友</a>
+                <a class="nav-link" href="#">所在组织</a>
+                <a class="nav-link" href="#">我的模型</a>
+                <!-- <a class="nav-link" href="#">Link</a>
                 <a class="nav-link" href="#">Link</a> -->
-        </nav>
+            </nav>
+        </div>
     </div>
-</div>
 
     <div class="container">
 
