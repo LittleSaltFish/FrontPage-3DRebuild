@@ -52,3 +52,8 @@
 
 1. 网页整体结构调整：flask->django
 2. 增加后台数据库
+
+### Version3.2 Preview
+
+1. 增加了登录逻辑
+2. 基本理清Django框架思路

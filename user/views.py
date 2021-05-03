@@ -37,4 +37,4 @@ def logout(request):
 
     if request.method == 'GET':
         auth.logout(request)
-        return HttpResponseRedirect('/uesr/login/')
+        return HttpResponseRedirect('/user/login/')
