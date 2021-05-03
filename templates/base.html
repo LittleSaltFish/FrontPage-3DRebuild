@@ -1,8 +1,7 @@
-
-
 <!doctype html>
 <html lang="zh-CN">
 {% load static %}
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,33 +13,12 @@
     <title>在线校史馆</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/4.6/examples/album/">
-
     <!-- Bootstrap core CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
         integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-
-    <style>
-        .bd-placeholder-img {
-            font-size: 1.125rem;
-            text-anchor: middle;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-        }
-
-        @media (min-width: 768px) {
-            .bd-placeholder-img-lg {
-                font-size: 3.5rem;
-            }
-        }
-
-    </style>
-
     <!-- Custom styles for this template -->
     {%block custom_css%}
-    <!-- 此处插入自定义css-->
     {%endblock%}
 </head>
 
@@ -69,7 +47,6 @@
         <div class="navbar navbar-dark bg-dark shadow-sm">
             <div class="container d-flex justify-content-between">
                 <a href="/" class="navbar-brand d-flex align-items-center">
-
                     <strong>武汉理工大学校史馆</strong>
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader"
@@ -85,7 +62,8 @@
             <nav class="nav nav-underline">
                 {%if user.is_authenticated %}
                 <a class="nav-link active" href="#">欢迎，{{user.username}}！</a>
-                <a class="nav-link pull-right" href="/user/logout">退出登录</a>
+                <a class="nav-link" href="#" aria-disabled="true" data-toggle="modal"
+                    data-target="#sing-out-identify">退出登录</a>
                 <a class="nav-link" href="/BBS">进入论坛</a>
                 <a class="nav-link" href="#">
                     未读通知
@@ -95,12 +73,34 @@
                 <a class="nav-link" href="#">所在组织</a>
                 <a class="nav-link" href="#">我的模型</a> -->
                 <!-- <a class="nav-link" href="#">Link</a> -->
+                {%if user.is_staff %}
+                <a class="nav-link" href="/user/charts">流量管理</a>
+                <a class="nav-link" href="/user/tables">数据库管理</a>
+                <a class="nav-link" href="/admin">后台管理</a>
+                {% endif %}
                 {% else %}
                 <a class="nav-link active" href="#">欢迎，访客！</a>
                 <a class="nav-link pull-right" href="/user/login">登录</a>
                 <a class="nav-link pull-right" href="/user/register">注册</a>
                 {% endif %}
             </nav>
+        </div>
+    </div>
+
+    <div class="modal fade" id="sing-out-identify" role="dialog" aria-labelledby="exampleModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="exampleModalLabel"><b>要登出吗？</b></h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-footer">
+                    <a id="cancel" href="{%url 'user:logout'%}" class=" btn btn-danger" role="button">确认登出</a>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">放弃登出</button>
+                </div>
+            </div>
         </div>
     </div>
 

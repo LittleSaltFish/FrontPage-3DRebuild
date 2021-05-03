@@ -19,7 +19,7 @@ from django.conf.urls import url
 from . import views
 
 urlpatterns = [
-    path('', views.home),
+    path('', views.home, name="home"),
     path('admin/', admin.site.urls),
     path('database/', views.database),
     path('monitor/', views.monitor),

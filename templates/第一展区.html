@@ -1,82 +1,7 @@
+{% extends 'base.html' %}
 {% load static %}
 
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="{% static 'pic/相机.ico' %}">
-
-    <title>在线校史馆</title>
-
-    <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
-        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-
-    <!-- Custom styles for this template -->
-    <link href="{% static 'css/BBS.css' %}" rel="stylesheet">
-    <link href="{% static 'css/blog.css' %}" rel="stylesheet">
-</head>
-
-<body>
-    <header>
-        <div class="collapse bg-dark" id="navbarHeader">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-8 col-md-7 py-4">
-                        <h4 class="text-white">About</h4>
-                        <p class="text-muted">
-                            绵延120余载的办学历史，夯实了武汉理工大学持续发展的强大基础；合并组建20年的办学成就，书写了武汉理工大学跨越发展的辉煌篇章。校史馆从2000年5月27日起，至2019年12月31日止。以历程篇、成就篇、人物篇三个部分反映学校的发展历程，呈现20年的建设成就，展示理工大人奋发向上的精神风貌。
-                        </p>
-                    </div>
-                    <div class="col-sm-4 offset-md-1 py-4">
-                        <h4 class="text-white">Contact</h4>
-                        <ul class="list-unstyled">
-                            <li><a href="#" class="text-light">地址：湖北省武汉市珞狮路122号</a></li>
-                            <li><a href="#" class="text-light">邮编：430070</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="navbar navbar-dark bg-dark shadow-sm">
-            <div class="container d-flex justify-content-between">
-                <a href="/" class="navbar-brand d-flex align-items-center">
-
-                    <strong>武汉理工大学校史馆</strong>
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader"
-                    aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-            </div>
-        </div>
-    </header>
-
-    <div class="nav-scroller bg-white shadow-sm">
-        <div class="container">
-            <nav class="nav nav-underline">
-                <a class="nav-link active" href="#">欢迎，访客！</a>
-                <a class="nav-link pull-right" href="/signin">登录/注册</a>
-                <a class="nav-link" href="/BBS">进入论坛</a>
-                <a class="nav-link" href="#">
-                    未读通知
-                    <span class="badge badge-pill bg-light align-text-bottom">27</span>
-                </a>
-                <!-- <a class="nav-link" href="#"></a> -->
-                <a class="nav-link" href="#">我的好友</a>
-                <a class="nav-link" href="#">所在组织</a>
-                <a class="nav-link" href="#">我的模型</a>
-                <!-- <a class="nav-link" href="#">Link</a>
-                <a class="nav-link" href="#">Link</a> -->
-            </nav>
-        </div>
-    </div>
-
+{%block content%}
 
     <div class="container">
 
@@ -166,10 +91,9 @@
                     </ul>
                 </nav>
 
-            </div><!-- /.blog-main -->
+            </div>
 
             <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
-                <!-- <div class="sticky-top"> -->
                 <div class="sidebar-module sidebar-module-inset">
                     <h4>前言</h4>
                     <p>武汉工业大学发展历程主要有：两支三脉。两支：南支北支；三脉：武汉、沈阳、北京。南支武汉一脉，其渊源最早可追溯到1898年湖北工艺学堂，到1950年发展为武昌高级工业学校。1952年武昌高级工业学校等中南“四大高工”的土木科及武汉土木工程学校、长沙市政建设工程学校，合并组建中南建筑工程学校，到1965年改为武汉建筑工程学校。北支沈阳一脉：1948年东北军区军工部工业专门学校诞生，到1958年合并组成沈阳建筑材料工业学院。北支北京一脉：1958年北京建筑工业学院合并组建。1959年北支二脉，北京建筑工业学院与沈阳建筑材料工业学院组成新的北京建筑工业学院。1971年，南支北支合并，北京建筑工业学院与武汉建筑工程学校合并为湖北建筑工业学院，1985年升为武汉工业大学。
@@ -189,39 +113,18 @@
                         <li><a href="#9">为新世纪奠基的武汉工业大学</a></li>
                     </ol>
                 </div>
-                <!-- </div> -->
-            </div><!-- /.blog-sidebar -->
+            </div>
 
-        </div><!-- /.row -->
-
-    </div><!-- /.container -->
-
-
-    <footer class="text-muted text-center">
-        <div class="container">
-            <p class="float-right">
-                <a href="#">回到顶部</a>
-            </p>
-            <em>凤凰鸣矣，于彼高岗；梧桐生矣，于彼朝阳。追求卓越，其道大昌；修史建馆，永志勿忘。</em>
-            <p>地址：湖北省武汉市珞狮路122号</p>
-            <p>邮编：430070</p>
         </div>
-    </footer>
+
+    </div>
+    {%endblock%}
 
 
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
-    </script>
-    <script>
-        window.jQuery || document.write(
-            '<script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.12.2/jquery.slim.min.js"><\/script>')
 
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
-</body>
+{%block custom_css%}
+    <link href="{% static 'css/BBS.css' %}" rel="stylesheet">
+    <link href="{% static 'css/blog.css' %}" rel="stylesheet">
+{%endblock%}
 
-</html>

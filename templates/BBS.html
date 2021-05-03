@@ -2,7 +2,6 @@
 {% load static %}
 
 {%block content%}
-
     <main role="main" class="container">
         <div class="d-flex align-items-center p-3 my-3 bg-white rounded shadow-sm">
             <img class="mr-3" src="https://img.imgdb.cn/item/6086d115d1a9ae528fb01908.jpg" alt="" width="48"
@@ -102,13 +101,10 @@
             </div>
         </form>
     </main>
-
-    {%endblock%}
+{%endblock%}
 
 {%block custom_css%}
-
 <style>
-    
     .bd-placeholder-img {
         font-size: 1.125rem;
         text-anchor: middle;
@@ -123,14 +119,20 @@
             font-size: 3.5rem;
         }
     }
-
 </style>
 <link href="{% static 'css/BBS.css' %}" rel="stylesheet">
-    
-
 {%endblock%}
 
 
 {%block custom_js%}
-
+<script src="{% static 'tinymce/tinymce.min.js' %}"></script>
+<script>
+    tinymce.init({
+        selector: 'textarea',
+        height: 500,
+        language: "zh_CN",
+        plugins: "advlist,autolink,lists,link,image,charmap,print,preview,anchor,visualblocks,code,fullscreen,insertdatetime,media,table,paste,bbcode,help,wordcount,toc,link,autosave",
+    })
+</script>
+<link href="{% static 'js/BBS.js' %}" rel="stylesheet">
 {%endblock%}

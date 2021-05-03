@@ -8,33 +8,47 @@ from django.shortcuts import render
 # Create your views here.
 from django.contrib.auth.models import User
 
+
 def register(request):
-    if request.method == 'GET':
-        return render(request, 'register.html')
-    if request.method == 'POST':
-        name = request.POST.get('name')
-        password = request.POST.get('password')
+    if request.method == "GET":
+        return render(request, "register.html")
+    if request.method == "POST":
+        name = request.POST.get("name")
+        password = request.POST.get("password")
         User.objects.create_user(username=name, password=password)
-        return HttpResponseRedirect('/user/login/')
+        return HttpResponseRedirect("/user/login/")
 
 
 def login(request):
-    if request.method == 'GET':
-        return render(request, 'login.html')
-    if request.method == 'POST':
-        name = request.POST.get('name')
-        password = request.POST.get('password')
+    if request.method == "GET":
+        return render(request, "login.html")
+    if request.method == "POST":
+        name = request.POST.get("name")
+        password = request.POST.get("password")
         # 验证用户名和密码，通过的话，返回User对象
         user = auth.authenticate(username=name, password=password)
         if user:
             auth.login(request, user)
-            return HttpResponseRedirect('/')
+            return HttpResponseRedirect("/")
         else:
-            return render(request,"index.html")
-        
+            return render(request, "login.html")
+
 
 def logout(request):
-
-    if request.method == 'GET':
+    if request.method == "GET":
         auth.logout(request)
-        return HttpResponseRedirect('/user/login/')
+        return HttpResponseRedirect("/")
+
+
+def admim_charts(request):
+    if request.method == "GET" and request.user.is_authenticated:
+        return render(request, "Admin-Charts.html")
+    else:
+        return render("404.html")
+
+
+def admim_tables(request):
+    if request.method == "GET" and request.user.is_authenticated:
+        return render(request, "Admin-Tables.html")
+    else:
+        return render(request, "404.html")
