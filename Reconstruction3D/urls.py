@@ -32,4 +32,5 @@ urlpatterns = [
     path('zone3/', views.zone3),
     path('zone4/', views.zone4),
     path('user/', include(('user.urls','user'))),  # 用户url
+    path('tinymce/', include('tinymce.urls'))
 ]

@@ -44,11 +44,12 @@ def admim_charts(request):
     if request.method == "GET" and request.user.is_authenticated:
         return render(request, "Admin-Charts.html")
     else:
-        return render("404.html")
+        return render(request,"Admin-404.html")
 
 
 def admim_tables(request):
     if request.method == "GET" and request.user.is_authenticated:
         return render(request, "Admin-Tables.html")
     else:
-        return render(request, "404.html")
+        return render(request, "Admin-404.html")
+

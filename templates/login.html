@@ -11,8 +11,8 @@
     <meta name="author" content="">
 
     <title>SB Admin 2 - Login</title>
-<!-- Custom fonts for this template -->
-<link href="{% static 'css/all.min.css' %}" rel="stylesheet" type="text/css">
+    <!-- Custom fonts for this template -->
+    <link href="{% static 'css/all.min.css' %}" rel="stylesheet" type="text/css">
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
@@ -44,13 +44,12 @@
                                     <form class="user" role="form" action="/user/login/" method="POST">
                                         {% csrf_token %}
                                         <div class="form-group">
-                                            <input type="name" class="form-control form-control-user"
-                                                id="name" aria-describedby="emailHelp"
-                                                placeholder="name" name="name">
+                                            <input type="name" class="form-control form-control-user" id="name"
+                                                aria-describedby="emailHelp" placeholder="name" name="name">
                                         </div>
                                         <div class="form-group">
-                                            <input type="password" class="form-control form-control-user"
-                                                id="password" placeholder="Password" name="password">
+                                            <input type="password" class="form-control form-control-user" id="password"
+                                                placeholder="Password" name="password">
                                         </div>
                                         <div class="form-group">
                                             <div class="custom-control custom-checkbox small">
@@ -75,7 +74,7 @@
                                         <a class="small" href="forgot-password.html">Forgot Password?</a>
                                     </div>
                                     <div class="text-center">
-                                        <a class="small" href="register.html">Create an Account!</a>
+                                        <a class="small" href="register.html">Create an user!</a>
                                     </div>
                                 </div>
                             </div>

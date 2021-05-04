@@ -26,7 +26,7 @@ SECRET_KEY = "django-insecure-w!5u=b#cq6m@-3&73axonno%&8l$n_r=r1(p1tesievy*o6rfd
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["127.0.0.1", ".saltfish.link"]
 
 
 # Application definition
@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "tinymce",
     "user"
 ]
 
@@ -78,10 +79,11 @@ WSGI_APPLICATION = "Reconstruction3D.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+        "NAME": BASE_DIR / "DataBase" / "db.sqlite3",
     }
 }
 
+AUTH_USER_MODEL = 'user.user'
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -138,4 +140,3 @@ TINYMCE_DEFAULT_CONFIG = {
     "language": "zh_CN",
     "plugins": "advlist,autolink,lists,link,image,charmap,print,preview,anchor,visualblocks,code,fullscreen,insertdatetime,media,table,paste,bbcode,help,wordcount,toc,link,autosave",
 }
-
