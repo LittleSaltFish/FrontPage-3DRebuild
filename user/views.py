@@ -1,12 +1,11 @@
 from django.shortcuts import render
 from django.contrib import auth
 from django.contrib.auth.hashers import make_password, check_password
-from django.contrib.auth.models import User
 from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render
+from user.models import user,comment
+from django.utils import timezone
 
-# Create your views here.
-from django.contrib.auth.models import User
 
 
 def register(request):
@@ -15,7 +14,7 @@ def register(request):
     if request.method == "POST":
         name = request.POST.get("name")
         password = request.POST.get("password")
-        User.objects.create_user(username=name, password=password)
+        user.objects.create_user(username=name, password=password)
         return HttpResponseRedirect("/user/login/")
 
 
@@ -53,3 +52,14 @@ def admim_tables(request):
     else:
         return render(request, "Admin-404.html")
 
+def make_comment(request):
+    if request.method == "POST":
+        comment_content  = request.POST['comment_content']
+        user_name=request.POST['user_name']
+        user_id_str  = request.POST['user_id']
+        user_id  = user.objects.filter(id=user_id_str).first()
+        
+        comment.objects.create(comment_content=comment_content,comment_hot_rate=0,create_time=timezone.now(),is_delete=False,user_id=user.objects.filter(id=user_id).first(),user_name=user_name)
+        return render(request,"BBS.html")
+    else:
+        return render(request, "Admin-404.html")
