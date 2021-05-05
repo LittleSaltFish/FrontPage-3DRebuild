@@ -55,7 +55,7 @@ def admim_tables(request):
 
 def make_comment(request):
     if request.method == "POST":
-        comment_content = request.POST["comment_content"]
+        comment_content = request.POST["comment_content"].replace("[","<").replace("]",">")
         user_name = request.POST["user_name"]
         user_id_str = request.POST["user_id"]
         user_id = user.objects.filter(id=user_id_str).first()
