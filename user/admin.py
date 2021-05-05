@@ -3,7 +3,7 @@ from django.contrib.auth.admin import UserAdmin
 from .models import user,comment
 # Register your models here.
 
-ADDITIONAL_FIELDS = ((None, {'fields': ('phone_number',)}),)
+ADDITIONAL_FIELDS = ((None, {'fields': ('photo_url',)}),)
 
 class UserAdmin(UserAdmin):
     fieldsets = UserAdmin.fieldsets + ADDITIONAL_FIELDS

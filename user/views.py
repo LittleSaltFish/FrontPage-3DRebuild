@@ -3,9 +3,9 @@ from django.contrib import auth
 from django.contrib.auth.hashers import make_password, check_password
 from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render
-from user.models import user,comment
+from user.models import user, comment
 from django.utils import timezone
-
+from django.db import models
 
 
 def register(request):
@@ -43,7 +43,7 @@ def admim_charts(request):
     if request.method == "GET" and request.user.is_authenticated:
         return render(request, "Admin-Charts.html")
     else:
-        return render(request,"Admin-404.html")
+        return render(request, "Admin-404.html")
 
 
 def admim_tables(request):
@@ -52,14 +52,35 @@ def admim_tables(request):
     else:
         return render(request, "Admin-404.html")
 
+
 def make_comment(request):
     if request.method == "POST":
-        comment_content  = request.POST['comment_content']
-        user_name=request.POST['user_name']
-        user_id_str  = request.POST['user_id']
-        user_id  = user.objects.filter(id=user_id_str).first()
+        comment_content = request.POST["comment_content"]
+        user_name = request.POST["user_name"]
+        user_id_str = request.POST["user_id"]
+        user_id = user.objects.filter(id=user_id_str).first()
+        user_photo_url = user.objects.values("photo_url").get(id=user_id_str)["photo_url"]
         
-        comment.objects.create(comment_content=comment_content,comment_hot_rate=0,create_time=timezone.now(),is_delete=False,user_id=user.objects.filter(id=user_id).first(),user_name=user_name)
-        return render(request,"BBS.html")
+        comment.objects.create(
+            comment_content=comment_content,
+            comment_hot_rate=0,
+            create_time=timezone.now(),
+            is_delete=False,
+            user_id=user_id,
+            user_name=user_name,
+            user_photo_url=user_photo_url,
+        )
+        return HttpResponseRedirect("/BBS")
     else:
-        return render(request, "Admin-404.html")
+        return render(request, "Front-404.html")
+
+
+def list_comment(request):
+    if request.method == "GET":
+        comment_by_time = comment.objects.all().order_by("-create_time")[:20]
+        comment_by_hot_rate = comment.objects.all().order_by("-comment_hot_rate")[:20]
+        return render(
+            request,
+            "BBS.html",
+            {"by_time": comment_by_time, "by_hot": comment_by_hot_rate},
+        )

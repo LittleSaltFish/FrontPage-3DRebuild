@@ -1,0 +1,35 @@
+{% extends 'base-front.html' %}
+{% load static %}
+
+{%block content%}
+
+<!-- Begin Page Content -->
+<div class="container-fluid">
+
+    <!-- 404 Error Text -->
+    <div class="text-center m-5">
+        <div class="error mx-auto" data-text="404">404</div>
+        <p class="lead text-gray-800 mb-5">页面不见了...</p>
+        <p class="text-gray-500 m-3">争渡，争渡，误入藕花深处</p>
+        <a href="{%url 'home'%}">&larr; 回到首页</a>
+    </div>
+
+</div>
+
+{%endblock%}
+
+{%block custom_css%}
+<link href="{% static 'css/BBS.css' %}" rel="stylesheet">
+<link href="{% static 'css/blog.css' %}" rel="stylesheet">
+<link href="{% static 'css/sb-admin-2.min.css' %}" rel="stylesheet">
+<link href="{% static 'css/dataTables.bootstrap4.min.css' %}" rel="stylesheet">
+<link href="{% static 'css/fontawesome.min.css' %}" rel="stylesheet">
+{%endblock%}
+
+{%block custom_js%}
+<script src="{% static 'js/jquery.easing.min.js' %}"></script>
+<script src="{% static 'js/sb-admin-2.min.js' %}"></script>
+<script src="{% static 'js/jquery.dataTables.min.js' %}"></script>
+<script src="{% static 'js/dataTables.bootstrap4.min.js' %}"></script>
+<script src="{% static 'js/datatables-demo.js' %}"></script>
+{%endblock%}
