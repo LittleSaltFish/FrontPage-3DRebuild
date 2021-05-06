@@ -72,3 +72,7 @@
 ### Version3.5 Preview
 
 1. 完成了评论逻辑
+
+### Version3.6 Preview
+
+1. 完善了注册和登录逻辑
