@@ -92,7 +92,11 @@
                     <strong class="text-gray-dark">{{hot.user_name}}</strong>
                     {% endif %}
                     <!-- <a href="#">like:{{hot.comment_hot_rate}}</a> -->
-                    <a href="#">点赞</a>
+                    <!-- TODO 点赞没做完 -->
+                    <form method="POST" action="{% url 'user:like_comment'%}">
+                        {% csrf_token %}
+                        <button type="submit">点赞</button>
+                    </form>
                 </div>
                 <span class="d-block w-75">{{hot.comment_content|safe}}</span>
             </div>
@@ -140,7 +144,7 @@
             <a href="#">热门评论</a>
         </small>
     </div>
-    <form method="POST" action="{% url 'user:comment'%}">
+    <form method="POST" action="{% url 'user:make_comment'%}">
         {% csrf_token %}
         <div class="my-3 p-3 bg-white rounded shadow-sm">
             <h6 class="border-bottom border-gray pb-2 mb-3">添加评论</h6>
