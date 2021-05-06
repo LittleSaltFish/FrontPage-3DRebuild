@@ -14,6 +14,7 @@
     <div class="my-3 p-3 bg-white rounded shadow-sm">
         <h6 class="border-bottom border-gray pb-2 mb-0">最近更新</h6>
         {% for time in by_time %}
+        {%if time.is_delete is False %}
         <div class="media text-muted pt-3">
             {%if time.user_id is None%}
             <img src="https://img.imgdb.cn/item/6092c5fdd1a9ae528ff71dd9.png" class="bd-placeholder-img mr-2 rounded"
@@ -34,6 +35,7 @@
                 <span class="d-block w-75">{{time.comment_content|safe}}</span>
             </div>
         </div>
+        {%endif%}
         {%endfor%}
 
         <!-- <div class="media text-muted pt-3">
@@ -72,6 +74,7 @@
     <div class="my-3 p-3 bg-white rounded shadow-sm">
         <h6 class="border-bottom border-gray pb-2 mb-0">热门评论</h6>
         {% for hot in by_hot %}
+        {%if hot.is_delete is False %}
         <div class="media text-muted pt-3">
 
             {%if hot.user_id is None%}
@@ -94,6 +97,7 @@
                 <span class="d-block w-75">{{hot.comment_content|safe}}</span>
             </div>
         </div>
+        {%endif%}
         {%endfor%}
         <!-- <div class="media text-muted pt-3">
             <img src="https://pic2.zhimg.com/100/v2-ed0623cfa55c92c33e212c846f07d4e8_r.jpeg?source=1940ef5c"

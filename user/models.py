@@ -15,9 +15,6 @@ class comment(models.Model):
     comment_hot_rate = models.IntegerField(verbose_name="点赞数量")
     create_time = models.DateTimeField(auto_now_add=True, verbose_name="创建时间")
     is_delete = models.BooleanField(default=False, verbose_name="删除标记")
-    # user_id = models.ForeignKey(
-    #     settings.AUTH_USER_MODEL, verbose_name="作者id", on_delete=models.DO_NOTHING
-    # )
     user_id = models.ForeignKey(
         settings.AUTH_USER_MODEL, verbose_name="作者id",default="-1", on_delete=models.SET_NULL,null=True
     )

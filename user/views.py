@@ -12,15 +12,20 @@ def register(request):
     if request.method == "GET":
         return render(request, "register.html")
     if request.method == "POST":
+        message=None
         name = request.POST.get("name")
         password = request.POST.get("password")
-        user.objects.create_user(username=name, password=password)
-        return HttpResponseRedirect("/user/login/")
+        if user.objects.filter(username=name):
+            message="用户名已被使用，换一个吧"
+            return render(request, "register.html",{"message":message})
+        else:
+            user.objects.create_user(username=name, password=password)
+            return HttpResponseRedirect("/user/login/")
 
 
 def login(request):
     if request.method == "GET":
-        return render(request, "login.html")
+        return render(request, "login.html",{"message":None})
     if request.method == "POST":
         name = request.POST.get("name")
         password = request.POST.get("password")
@@ -30,7 +35,8 @@ def login(request):
             auth.login(request, user)
             return HttpResponseRedirect("/")
         else:
-            return render(request, "login.html")
+            message="请检查用户名和密码"
+            return render(request, "login.html",{"message":message})
 
 
 def logout(request):
@@ -79,6 +85,11 @@ def list_comment(request):
     if request.method == "GET":
         comment_by_time = comment.objects.all().order_by("-create_time")[:20]
         comment_by_hot_rate = comment.objects.all().order_by("-comment_hot_rate")[:20]
+        for i in range(len(comment_by_hot_rate)):
+            id= comment_by_hot_rate[i]
+        #     print(comment_by_hot_rate[i].user_id)
+        #     if user.objects.filter(username=id).is_delete:
+        #         comment_by_hot_rate[i].user_id=None
         return render(
             request,
             "BBS.html",

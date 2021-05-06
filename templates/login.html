@@ -24,10 +24,31 @@
 
 <body class="bg-gradient-primary">
 
+
     <div class="container">
+
 
         <!-- Outer Row -->
         <div class="row justify-content-center">
+
+            {%if message%}
+            <div class="col-xl-10 col-lg-12 mt-4">
+                <div class="card border-left-warning shadow h-100 py-2">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                <div class="h3 font-weight-bold text-danger text-uppercase mb-1">
+                                    登陆失败</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">{{message}}</div>
+                            </div>
+                            <div class="col-auto">
+                                <i class="fa fa-exclamation-triangle fa-3x text-gray-300"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {%endif%}
 
             <div class="col-xl-10 col-lg-12 col-md-9">
 

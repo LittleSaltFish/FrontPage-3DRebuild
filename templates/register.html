@@ -27,6 +27,25 @@
 
     <div class="container">
 
+        {%if message%}
+        <div class="col-xl-15 col-lg-15 mt-4">
+            <div class="card border-left-warning shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="h3 font-weight-bold text-danger text-uppercase mb-1">
+                                注册失败</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{message}}</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fa fa-exclamation-triangle fa-3x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {%endif%}
+
         <div class="card o-hidden border-0 shadow-lg my-5">
             <div class="card-body p-0">
                 <!-- Nested Row within Card Body -->
