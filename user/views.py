@@ -85,11 +85,13 @@ def list_comment(request):
     if request.method == "GET":
         comment_by_time = comment.objects.all().order_by("-create_time")[:20]
         comment_by_hot_rate = comment.objects.all().order_by("-comment_hot_rate")[:20]
-        for i in range(len(comment_by_hot_rate)):
-            id= comment_by_hot_rate[i]
-        #     print(comment_by_hot_rate[i].user_id)
+        
+        # for i in range(len(comment_by_hot_rate)):
+        #     id= comment_by_hot_rate[i].user_id_id
+        #     print(id)
         #     if user.objects.filter(username=id).is_delete:
         #         comment_by_hot_rate[i].user_id=None
+        
         return render(
             request,
             "BBS.html",
