@@ -13,34 +13,32 @@
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h2 class="m-0 font-weight-bold text-primary">评论总览</h2>
+            <h2 class="m-0 font-weight-bold text-primary">用户总览</h2>
         </div>
         <div class="card-body">
             <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                         <tr>
-                            <th>评论序号</th>
-                            <th>评论内容</th>
-                            <th>点赞数量</th>
+                            <th>用户序号</th>
+                            <th>用户昵称</th>
                             <th>创建时间</th>
+                            <th>上次登录</th>
+                            <th>管理状态</th>
                             <th>是否删除</th>
-                            <th>作者序号</th>
-                            <th>作者姓名</th>
-                            <th>作者头像</th>
+                            <th>用户头像</th>
                         </tr>
                     </thead>
                     <tbody>
-                        {%for comment in comments%}
+                        {%for user in users%}
                         <tr>
-                            <td>{{comment.comment_id}}</td>
-                            <td>{{comment.comment_content|safe}}</td>
-                            <td>{{comment.comment_hot_rate}}</td>
-                            <td>{{comment.create_time}}</td>
-                            <td>{{comment.is_delete}}</td>
-                            <td>{{comment.user_id}}</td>
-                            <td>{{comment.user_name}}</td>
-                            <td><img src="{{comment.user_photo_url}}" class="bd-placeholder-img mr-2 rounded" width="32"
+                            <td>{{user.id}}</td>
+                            <td>{{user.username}}</td>
+                            <td>{{user.date_joined}}</td>
+                            <td>{{user.last_login}}</td>
+                            <td>{{user.is_staff}}</td>
+                            <td>{{user.is_active}}</td>
+                            <td><img src="{{user.photo_url}}" class="bd-placeholder-img mr-2 rounded" width="32"
                                     height="32"></td>
                         </tr>
                         {%endfor%}

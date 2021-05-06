@@ -54,10 +54,18 @@ def admim_charts(request):
 
 def admim_tables(request):
     if request.method == "GET" and request.user.is_authenticated:
-        return render(request, "Admin-Tables.html")
+        comments = comment.objects.all()
+        return render(request,"Admin-Tables.html",{"comments": comments})
     else:
         return render(request, "Admin-404.html")
 
+
+def admim_users(request):
+    if request.method == "GET" and request.user.is_authenticated:
+        users = user.objects.all()
+        return render(request,"Admin-Users.html",{"users": users})
+    else:
+        return render(request, "Admin-404.html")
 
 def make_comment(request):
     if request.method == "POST":

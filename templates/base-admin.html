@@ -52,9 +52,9 @@
                     <span>首页导航</span></a>
             </li>
 
+{% comment %} 
             <!-- Divider -->
             <hr class="sidebar-divider">
-
             <!-- Heading -->
             <div class="sidebar-heading">
                 接口
@@ -93,14 +93,14 @@
                         <a class="collapse-item" href="utilities-other.html">其他</a>
                     </div>
                 </div>
-            </li>
+            </li> {% endcomment %}
 
             <!-- Divider -->
             <hr class="sidebar-divider">
 
             <!-- Heading -->
             <div class="sidebar-heading">
-                添加
+                跳转
             </div>
 
             <!-- Nav Item - Pages Collapse Menu -->
@@ -125,14 +125,15 @@
             </li>
 
             <!-- Nav Item - Charts -->
-            <li class="nav-item">
+            {% comment %} <li class="nav-item">
                 <a class="nav-link" href="/user/charts">
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>图表</span></a>
-            </li>
+            </li> {% endcomment %}
 
             <!-- Nav Item - Tables -->
-            <li class="nav-item active">
+            <li class="nav-item">
+            {% comment %} <li class="nav-item active"> {% endcomment %}
                 <a class="nav-link" href="/user/tables">
                     <i class="fas fa-fw fa-table"></i>
                     <span>表格</span></a>
@@ -166,7 +167,7 @@
                     </form>
 
                     <!-- Topbar Search -->
-                    <form
+                    {% comment %} <form
                         class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
                         <div class="input-group">
                             <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
@@ -177,7 +178,7 @@
                                 </button>
                             </div>
                         </div>
-                    </form>
+                    </form> {% endcomment %}
 
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
@@ -325,7 +326,7 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">管理员</span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{user.username}}</span>
                                 <img class="img-profile rounded-circle" src="{% static 'svg/undraw_profile.svg' %}">
                             </a>
                             <!-- Dropdown - User Information -->
@@ -401,7 +402,7 @@
                 <div class="modal-body">如果您准备结束当前会话，请选择下面的“退出”.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">取消</button>
-                    <a class="btn btn-primary" href="login.html">退出</a>
+                    <a class="btn btn-primary" href="{%url 'user:logout'%}">退出</a>
                 </div>
             </div>
         </div>

@@ -22,10 +22,6 @@ from user.views import list_comment
 urlpatterns = [
     path('', views.home, name="home"),
     path('admin/', admin.site.urls),
-    path('database/', views.database),
-    path('monitor/', views.monitor),
-    # path('BBS/', views.BBS),
-    # 静态
     path('BBS/', list_comment),
     path('zone1/', views.zone1),
     path('zone2/', views.zone2),
