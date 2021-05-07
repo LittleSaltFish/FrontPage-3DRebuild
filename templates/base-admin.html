@@ -39,7 +39,7 @@
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3">在线校史馆</sup></div>
+                <div class="sidebar-brand-text mx-3">在线校史馆</div>
             </a>
 
             <!-- Divider -->
@@ -49,10 +49,10 @@
             <li class="nav-item">
                 <a class="nav-link" href="/">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>首页导航</span></a>
+                    <span>回到首页</span></a>
             </li>
 
-{% comment %} 
+            {% comment %}
             <!-- Divider -->
             <hr class="sidebar-divider">
             <!-- Heading -->
@@ -93,7 +93,8 @@
                         <a class="collapse-item" href="utilities-other.html">其他</a>
                     </div>
                 </div>
-            </li> {% endcomment %}
+            </li>
+            {% endcomment %}
 
             <!-- Divider -->
             <hr class="sidebar-divider">
@@ -108,14 +109,14 @@
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
                     aria-expanded="true" aria-controls="collapsePages">
                     <i class="fas fa-fw fa-folder"></i>
-                    <span>页面</span>
+                    <span>页面导航</span>
                 </a>
                 <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">登录选项:</h6>
                         <a class="collapse-item" href="/user/login">登录</a>
                         <a class="collapse-item" href="/uesr/register">注册</a>
-                        <a class="collapse-item" href="/admin">数据库管理</a>
+                        <!-- <a class="collapse-item" href="/admin">数据库管理</a> -->
                         <div class="collapse-divider"></div>
                         <h6 class="collapse-header">其他选项:</h6>
                         <a class="collapse-item" href="/">回到首页</a>
@@ -124,6 +125,7 @@
                 </div>
             </li>
 
+            {%block sidebar%}
             <!-- Nav Item - Charts -->
             <li class="nav-item">
                 <a class="nav-link" href="/user/users">
@@ -132,12 +134,12 @@
             </li>
 
             <!-- Nav Item - Tables -->
-            <li class="nav-item">
-            {% comment %} <li class="nav-item active"> {% endcomment %}
+            <li class="nav-item active">
                 <a class="nav-link" href="/user/comments">
                     <i class="fas fa-fw fa-table"></i>
                     <span>评论管理</span></a>
             </li>
+            {%endblock%}
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">

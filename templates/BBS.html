@@ -12,7 +12,7 @@
     </div>
 
     <div class="my-3 p-3 bg-white rounded shadow-sm">
-        <h6 class="border-bottom border-gray pb-2 mb-0">最近更新</h6>
+        <h3 class="border-bottom border-gray pb-2 mb-0">最近更新</h3>
         {% for time in by_time %}
         {%if time.is_delete is False %}
         <div class="media text-muted pt-3">
@@ -49,42 +49,13 @@
         </div>
         {%endif%}
         {%endfor%}
-
-        <!-- <div class="media text-muted pt-3">
-
-            <img src="https://pic2.zhimg.com/v2-7ff800975ab9cac63295b786668d467a_xl.jpg"
-                class="bd-placeholder-img mr-2 rounded" width="32" height="32">
-
-            <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
-                <strong class="d-block text-gray-dark">匿名</strong>
-                文化是旅游的灵魂，红色革命历史为中华民族精神宝库增添了重要的一笔。专家指出，发展红色旅游，关键是要深入挖掘红色精神财富，思考如何将革命历史、革命传统和革命精神在旅游中传递给广大人民群众，从而更好地传承革命文化。
-            </p>
-        </div> -->
-        <!-- <div class="media text-muted pt-3">
-            <img src="https://pic4.zhimg.com/50/v2-0ea3bc072607967e475fff312f8a859e_xs.jpg?source=54b3c3a5"
-                class="bd-placeholder-img mr-2 rounded" width="32" height="32">
-
-            <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
-                <strong class="d-block text-gray-dark">来生要做一棵树</strong>
-                作为一种以爱国主义与革命传统教育为宗旨的旅游产品，红色旅游应该围绕红色主题，营造氛围、深化体验、寓教于游，切不可随意让‘产业化’‘市场化’削弱了文化主题和公益性质，使其背离了开展红色旅游的‘初心’。
-            </p>
-        </div>
-        <div class="media text-muted pt-3">
-            <img src="https://pic1.zhimg.com/100/v2-a2dba10266bae3f316145d3d4730cde2_r.jpeg?source=1940ef5c"
-                class="bd-placeholder-img mr-2 rounded" width="32" height="32">
-
-            <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
-                <strong class="d-block text-gray-dark">大学生一枚</strong>
-                将三维重建、VR、AR等现代科技融入红色故事的讲解中，能让游客身临其境地体会到革命先烈的艰难困苦与英勇无畏，让红色历史成为‘可以穿越的历史’与‘可以透视的故事’。
-            </p>
-        </div> -->
-        <small class="d-block text-right mt-3">
+        <!-- <small class="d-block text-right mt-3">
             <a href="#">所有记录</a>
-        </small>
+        </small> -->
     </div>
 
     <div class="my-3 p-3 bg-white rounded shadow-sm">
-        <h6 class="border-bottom border-gray pb-2 mb-0">热门评论</h6>
+        <h3 class="border-bottom border-gray pb-2 mb-0">热门评论</h3>
         {% for hot in by_hot %}
         {%if hot.is_delete is False %}
         <div class="media text-muted pt-3">
@@ -123,51 +94,14 @@
         </div>
         {%endif%}
         {%endfor%}
-        <!-- <div class="media text-muted pt-3">
-            <img src="https://pic2.zhimg.com/100/v2-ed0623cfa55c92c33e212c846f07d4e8_r.jpeg?source=1940ef5c"
-                class="bd-placeholder-img mr-2 rounded" width="32" height="32">
-
-            <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
-                <div class="d-flex justify-content-between align-items-center w-100">
-                    <strong class="text-gray-dark">不墨迹</strong>
-                    <a href="#">+关注</a>
-                </div>
-                <span class="d-block w-75">红色旅游可以和自然景观、历史景观和人文景观紧密结合在一起，兼顾政治性和市场性，避免庸俗化。</span>
-            </div>
-        </div>
-        <div class="media text-muted pt-3">
-            <img src="https://pic1.zhimg.com/100/v2-34a2daeef9a46b9895a4f71cc814a610_r.jpeg?source=1940ef5c"
-                class="bd-placeholder-img mr-2 rounded" width="32" height="32">
-
-            <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
-                <div class="d-flex justify-content-between align-items-center w-100">
-                    <strong class="text-gray-dark">理想主义接班人</strong>
-                    <a href="#">+关注</a>
-                </div>
-                <span
-                    class="d-block w-75">红色旅游已成为我国整个旅游业的重要方面，要力戒红色旅游中的低俗、庸俗、恶俗现象，寓教于游，让游客通过参加红色旅游真正感受革命历史文化，领略革命历史精神，接受革命传统教育。</span>
-            </div>
-        </div>
-        <div class="media text-muted pt-3">
-            <img src="https://pic1.zhimg.com/50/v2-2d001c7363041bc8d3e5e0a2d0d1b98b_xs.jpg?source=54b3c3a5"
-                class="bd-placeholder-img mr-2 rounded" width="32" height="32">
-
-            <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
-                <div class="d-flex justify-content-between align-items-center w-100">
-                    <strong class="text-gray-dark">Tango</strong>
-                    <a href="#">+关注</a>
-                </div>
-                <span class="d-block w-75">对我们共产党人来说，中国革命历史是最好的营养剂。多重温这些伟大历史，心中就会增加很多正能量。</span>
-            </div>
-        </div> -->
-        <small class="d-block text-right mt-3">
+        <!-- <small class="d-block text-right mt-3">
             <a href="#">热门评论</a>
-        </small>
+        </small> -->
     </div>
     <form method="POST" action="{% url 'user:make_comment'%}">
         {% csrf_token %}
         <div class="my-3 p-3 bg-white rounded shadow-sm">
-            <h6 class="border-bottom border-gray pb-2 mb-3">添加评论</h6>
+            <h3 class="border-bottom border-gray pb-2 mb-3">添加评论</h3>
             <input type="hidden" name="user_name" value="{{user.username}}">
             <input type="hidden" name="user_id" value="{{user.id}}">
             <textarea id="comment" name="comment_content"></textarea>
