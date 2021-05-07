@@ -113,9 +113,8 @@ def list_comment(request):
 
 def like_comment(request):
     if request.method == "POST":
-        print(request.POST)
-        comment_id=request.POST["comment_id"][0]
-        target_comment = comment.objects.get(comment_id=comment_id)
+        comment_id=request.POST["comment_id"]
+        target_comment = comment.objects.get(comment_id=str(comment_id))
         target_comment.comment_hot_rate+=1
         target_comment.save()
         return HttpResponseRedirect("/BBS")

@@ -20,17 +20,29 @@
             <img src="https://img.imgdb.cn/item/6092c5fdd1a9ae528ff71dd9.png" class="bd-placeholder-img mr-2 rounded"
                 width="32" height="32">
             {%else%}
-            <img src={{time.user_photo_url}} class="bd-placeholder-img mr-2 rounded" width="32" height="32">
+            <img src="{{time.user_photo_url}}" class="bd-placeholder-img mr-2 rounded" width="32" height="32">
             {% endif %}
             <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
                 <div class="d-flex justify-content-between align-items-center w-100">
                     {%if time.user_id is None%}
-                    <strong class="d-block text-gray-dark">已注销</strong>
+                    <strong class="d-block text-gray-dark h4">已注销</strong>
                     {%else%}
-                    <strong class="d-block text-gray-dark">{{time.user_name}}</strong>
+                    <strong class="d-block text-gray-dark h4">{{time.user_name}}</strong>
                     {% endif %}
-                    <!-- <a href="#">like:{{time.comment_time_rate}}</a> -->
-                    <a href="#">点赞</a>
+                    <form method="POST" id="like-{{forloop.counter}}" name="like-{{forloop.counter}}"
+                        action="{% url 'user:like_comment'%}">
+                        {% csrf_token %}
+                        <input type="hidden" name="comment_id" value="{{time.comment_id}}">
+                        <div class="btn-group-vertical">
+                            <button class="btn btn-outline-success btn-sm" type="submit">点赞</button>
+                            <button class="btn btn-outline-dark btn-sm" type="submit"
+                                disabled>点赞量：{{time.comment_hot_rate}}</button>
+                            <!-- <button class="btn btn-outline-dark btn-sm" type="submit"
+                                disabled>id：{{time.comment_id}}</button> -->
+                            <button class="btn btn-outline-dark btn-sm" type="submit"
+                                disabled>{{time.create_time}}</button>
+                        </div>
+                    </form>
                 </div>
                 <span class="d-block w-75">{{time.comment_content|safe}}</span>
             </div>
@@ -81,23 +93,29 @@
             <img src="https://img.imgdb.cn/item/6092c5fdd1a9ae528ff71dd9.png" class="bd-placeholder-img mr-2 rounded"
                 width="32" height="32">
             {%else%}
-            <img src={{hot.user_photo_url}} class="bd-placeholder-img mr-2 rounded" width="32" height="32">
+            <img src="{{hot.user_photo_url}}" class="bd-placeholder-img mr-2 rounded" width="32" height="32">
             {% endif %}
 
             <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
                 <div class="d-flex justify-content-between align-items-center w-100">
                     {%if hot.user_id is None%}
-                    <strong class="text-gray-dark">已注销</strong>
+                    <strong class="text-gray-dark h4">已注销</strong>
                     {%else%}
-                    <strong class="text-gray-dark">{{hot.user_name}}</strong>
+                    <strong class="text-gray-dark h4">{{hot.user_name}}</strong>
                     {% endif %}
-                    <!-- <a href="#">like:{{hot.comment_hot_rate}}</a> -->
-                    <!-- TODO 点赞没做完 -->
                     <form method="POST" id="like-{{forloop.counter}}" name="like-{{forloop.counter}}"
                         action="{% url 'user:like_comment'%}">
                         {% csrf_token %}
                         <input type="hidden" name="comment_id" value="{{hot.comment_id}}">
-                        <button type="submit">点赞</button>
+                        <div class="btn-group-vertical">
+                            <button class="btn btn-outline-success btn-sm" type="submit">点赞</button>
+                            <button class="btn btn-outline-dark btn-sm" type="submit"
+                                disabled>点赞量：{{hot.comment_hot_rate}}</button>
+                            <!-- <button class="btn btn-outline-dark btn-sm" type="submit"
+                                disabled>id：{{hot.comment_id}}</button> -->
+                            <button class="btn btn-outline-dark btn-sm" type="submit"
+                                disabled>{{hot.create_time}}</button>
+                        </div>
                     </form>
                 </div>
                 <span class="d-block w-75">{{hot.comment_content|safe}}</span>
