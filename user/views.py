@@ -113,10 +113,11 @@ def list_comment(request):
 
 def like_comment(request):
     if request.method == "POST":
-        comment_id=request.POST["comment_id"]
-        comment = comment.objects.get(id=comment_id)
-        comment.comment_hot_rate+=1
-        comment.save()
+        print(request.POST)
+        comment_id=request.POST["comment_id"][0]
+        target_comment = comment.objects.get(comment_id=comment_id)
+        target_comment.comment_hot_rate+=1
+        target_comment.save()
         return HttpResponseRedirect("/BBS")
     else:
         return render(request, "Front-404.html")

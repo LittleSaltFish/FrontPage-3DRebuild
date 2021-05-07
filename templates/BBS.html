@@ -93,8 +93,10 @@
                     {% endif %}
                     <!-- <a href="#">like:{{hot.comment_hot_rate}}</a> -->
                     <!-- TODO 点赞没做完 -->
-                    <form method="POST" action="{% url 'user:like_comment'%}">
+                    <form method="POST" id="like-{{forloop.counter}}" name="like-{{forloop.counter}}"
+                        action="{% url 'user:like_comment'%}">
                         {% csrf_token %}
+                        <input type="hidden" name="comment_id" value="{{hot.comment_id}}">
                         <button type="submit">点赞</button>
                     </form>
                 </div>
@@ -148,8 +150,8 @@
         {% csrf_token %}
         <div class="my-3 p-3 bg-white rounded shadow-sm">
             <h6 class="border-bottom border-gray pb-2 mb-3">添加评论</h6>
-            <input type="hidden" name="user_name" value={{user.username}}>
-            <input type="hidden" name="user_id" value={{user.id}}>
+            <input type="hidden" name="user_name" value="{{user.username}}">
+            <input type="hidden" name="user_id" value="{{user.id}}">
             <textarea id="comment" name="comment_content"></textarea>
         </div>
         <div class="text-center">
