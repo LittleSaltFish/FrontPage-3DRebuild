@@ -10,7 +10,7 @@ class user(AbstractUser):
 
 class comment(models.Model):
 
-    comment_id = models.IntegerField(verbose_name="评论编号", primary_key=True)
+    comment_id = models.AutoField(verbose_name="评论编号", primary_key=True)
     comment_content = HTMLField(verbose_name="评论内容", max_length=500)
     comment_hot_rate = models.IntegerField(verbose_name="点赞数量")
     create_time = models.DateTimeField(auto_now_add=True, verbose_name="创建时间")
