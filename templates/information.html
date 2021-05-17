@@ -3,7 +3,6 @@
 
 {%block content%}
 <main role="main" class="container">
-    <!-- <div class="row"> -->
     <!-- <div class="col-md-4 order-md-2 mt-5 mb-5">
             <h4 class="d-flex justify-content-between align-items-center mb-3">
                 <span class="text-muted">账户信息</span>
@@ -53,12 +52,49 @@
                 </div>
             </form>
         </div> -->
-    <div class="col-md-12 mt-5 mb-5">
+    <div class="col-md-12 mt-4 mb-5">
+        {%if message and message == "修改成功"%}
+        <div class="col-xl-15 col-lg-15 mb-3">
+            <div class="card border-left-success shadow h-50 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="h3 font-weight-bold text-success text-uppercase mb-1">
+                                修改成功</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">如果修改密码，请重新登录</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fa fa-lightbulb fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {%elif message%}
+        <div class="col-xl-15 col-lg-15 mb-3">
+            <div class="card border-left-warning shadow h-50 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="h3 font-weight-bold text-danger text-uppercase mb-1">
+                                修改失败</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{message}}</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fa fa-exclamation-triangle fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {%endif%}
+
         <h4 class="mb-3">个人信息</h4>
         <hr>
-        <div class="needs-validation" novalidate>
-            <form class="needs-validation" novalidate>
-                <!-- <div class="row">
+        <form class="needs-validation" novalidate action="/user/information/" method="POST">
+            {% csrf_token %}
+            <!-- <form class="needs-validation" novalidate> -->
+            <!-- <div class="row">
                 <div class="col-md-6 mb-3">
                     <label for="firstName">First name</label>
                     <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
@@ -74,76 +110,80 @@
                     </div>
                 </div>
             </div> -->
-                <div class="mb-3">
-                    <label for="username">用户名</label>
-                    <div class="input-group">
-                        <input type="text" class="form-control" id="username"
-                            placeholder="最大长度为150个字符，只可以包含字母、数字或@.+-_" required
-                            value="{{user.username}}">
-                        <div class="invalid-feedback" style="width: 100%;">
-                            请输入合法的用户名
-                        </div>
+            <div class="mb-3">
+                <label for="name">用户名</label>
+                <div class="input-group">
+                    <input type="text" class="form-control" id="name" name="name"
+                        placeholder="最大长度为150个字符，只可以包含字母、数字或@.+-_" required value="{{user.username}}">
+                    <div class="invalid-feedback" style="width: 100%;">
+                        请输入合法的用户名
                     </div>
                 </div>
-                <div class="mb-3">
-                    <label for="photo_url">头像(图片链接)<span class="text-muted">(可选)</span></label>
-                    <input type="url" class="form-control" id="photo_url" placeholder="必须是链接，且最长不超过150个字符" value="{{user.photo_url}}">
-                    <div class="invalid-feedback">
-                        请输入合法的url
+            </div>
+            <div class="mb-3">
+                <label for="photo_url">用户头像<span class="text-muted">(图片链接-可选)</span></label>
+                <div class="input-group">
+                    <input type="url" class="form-control" id="photo_url" name="photo_url"
+                        placeholder="必须是链接，且最长不超过150个字符" value="{{user.photo_url}}">
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary" type="button" id="button-addon2">预览</button>
                     </div>
                 </div>
-                <div class="mb-3">
-                    <label for="email">Email <span class="text-muted">(可选)</span></label>
-                    <input type="email" class="form-control" id="email" placeholder="必须是邮箱地址，且最长不超过150个字符" value="{{user.email}}">
-                    <div class="invalid-feedback">
-                        请输入合法的Email地址
-                    </div>
+                <div class="invalid-feedback">
+                    请输入合法的url
                 </div>
-                <div class="input-group mb-3">
-                    <label for="academy">所在学院</label>
-                    <div class="input-group">
-                        <!-- <div class="input-group-prepend">
-                            <label class="input-group-text" for="academy">请选择</label>
-                        </div> -->
-                        <select class="custom-select" id="academy" name="academy" required>
-                            <option selected value="{{user.academy}}">{{user.academy}}</option>
-                            <option value="计算机学院">计算机学院</option>
-                            <option value="材料学院">材料学院</option>
-                            <option value="材料示范学院">材料示范学院</option>
-                            <option value="交通学院">交通学院</option>
-                            <option value="汽车学院">汽车学院</option>
-                            <option value="机电学院">机电学院</option>
-                            <option value="能动学院">能动学院</option>
-                            <option value="土建学院">土建学院</option>
-                            <option value="资环学院">资环学院</option>
-                            <option value="信息学院">信息学院</option>
-                            <option value="自动化学院">自动化学院</option>
-                            <option value="航运学院">航运学院</option>
-                            <option value="物流学院">物流学院</option>
-                            <option value="理学院">理学院</option>
-                            <option value="化生学院">化生学院</option>
-                            <option value="管理学院">管理学院</option>
-                            <option value="经济学院">经济学院</option>
-                            <option value="艺设学院">艺设学院</option>
-                            <option value="外语学院">外语学院</option>
-                            <option value="马克思主义学院">马克思主义学院</option>
-                            <option value="法学社会学院">法学社会学院</option>
-                            <option value="安全应急学院">安全应急学院</option>
-                            <option value="国教学院">国教学院</option>
-                            <option value="创业学院">创业学院</option>
-                            <option value="媒体理工">媒体理工</option>
-                            <option value="体育部">体育部</option>
-                            <option value="继续教育学院">继续教育学院</option>
-                            <option value="其他">其他</option>
-                            <option value="未选择">未选择</option>
-                        </select>
-                        <div class="invalid-feedback">
-                            请选择学院
-                        </div>
-                    </div>
+            </div>
+            <div class="mb-3">
+                <label for="email">电子邮件<span class="text-muted">(可选)</span></label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="必须是邮箱地址，且最长不超过150个字符"
+                    value="{{user.email}}">
+                <div class="invalid-feedback">
+                    请输入合法的Email地址
                 </div>
+            </div>
+            <div class="mb-3">
+                <label for="academy">所在学院</label>
+                <select class="custom-select" id="academy" name="academy" required>
+                    {% if user.academy == "未选择" %}
+                    <option selected disabled value="">请选择学院</option>
+                    {%else%}
+                    <option selected value="{{user.academy}}">{{user.academy}}</option>
+                    {% endif %}
+                    <option value="计算机学院">计算机学院</option>
+                    <option value="材料学院">材料学院</option>
+                    <option value="材料示范学院">材料示范学院</option>
+                    <option value="交通学院">交通学院</option>
+                    <option value="汽车学院">汽车学院</option>
+                    <option value="机电学院">机电学院</option>
+                    <option value="能动学院">能动学院</option>
+                    <option value="土建学院">土建学院</option>
+                    <option value="资环学院">资环学院</option>
+                    <option value="信息学院">信息学院</option>
+                    <option value="自动化学院">自动化学院</option>
+                    <option value="航运学院">航运学院</option>
+                    <option value="物流学院">物流学院</option>
+                    <option value="理学院">理学院</option>
+                    <option value="化生学院">化生学院</option>
+                    <option value="管理学院">管理学院</option>
+                    <option value="经济学院">经济学院</option>
+                    <option value="艺设学院">艺设学院</option>
+                    <option value="外语学院">外语学院</option>
+                    <option value="马克思主义学院">马克思主义学院</option>
+                    <option value="法学社会学院">法学社会学院</option>
+                    <option value="安全应急学院">安全应急学院</option>
+                    <option value="国教学院">国教学院</option>
+                    <option value="创业学院">创业学院</option>
+                    <option value="媒体理工">媒体理工</option>
+                    <option value="体育部">体育部</option>
+                    <option value="继续教育学院">继续教育学院</option>
+                    <option value="其他">其他</option>
+                </select>
+                <div class="invalid-feedback">
+                    请选择学院
+                </div>
+            </div>
 
-                <!-- <div class="mb-3">
+            <!-- <div class="mb-3">
                     <label for="address">Address</label>
                     <input type="text" class="form-control" id="address" placeholder="1234 Main St" required>
                     <div class="invalid-feedback">
@@ -247,10 +287,46 @@
                         </div>
                     </div>
                 </div> -->
-                <hr class="mb-4">
-                <button class="btn btn-primary btn-lg btn-block" type="submit">提交修改</button>
-            </form>
-        </div>
+            <div class="mb-3">
+                <p>
+                    <a class="btn btn-block btn-outline-danger" data-toggle="collapse" href="#collapseExample"
+                        role="button"
+                        aria-expanded="false" aria-controls="collapseExample">
+                        修改密码(可选)
+                    </a>
+                </p>
+                <div class="collapse" id="collapseExample">
+                    <div class="card card-body">
+                        <label for="name">旧密码</label>
+                        <div class="input-group mb-2">
+                            <input type="text" class="form-control" id="password_old" name="password_old"
+                                placeholder="请输入旧密码">
+                            <div class="invalid-feedback" style="width: 100%;">
+                                请输入合法的密码
+                            </div>
+                        </div>
+                        <label for="name">新密码</label>
+                        <div class="input-group mb-2">
+                            <input type="text" class="form-control" id="password_new" name="password_new"
+                                placeholder="请输入新密码">
+                            <div class="invalid-feedback" style="width: 100%;">
+                                请输入合法的密码
+                            </div>
+                        </div>
+                        <label for="name">验证密码</label>
+                        <div class="input-group mb-2">
+                            <input type="text" class="form-control" id="password_verify" name="password_verify"
+                                placeholder="请再次输入">
+                            <div class="invalid-feedback" style="width: 100%;">
+                                请输入合法的密码
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr class="mb-4">
+            <button id="submit" class="btn btn-primary btn-lg btn-block" type="submit">提交修改</button>
+        </form>
     </div>
 </main>
 
@@ -260,6 +336,7 @@
 <link href="{% static 'css/BBS.css' %}" rel="stylesheet">
 <link href="{% static 'css/blog.css' %}" rel="stylesheet">
 <link href="{% static 'css/form-validation.css' %}" rel="stylesheet">
+<link href="{% static 'css/all.min.css' %}" rel="stylesheet" type="text/css">
 <style>
     .bd-placeholder-img {
         font-size: 1.125rem;

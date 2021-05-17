@@ -27,6 +27,7 @@
                             <th>管理状态</th>
                             <th>是否删除</th>
                             <th>用户头像</th>
+                            <th>所在学院</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -40,6 +41,7 @@
                             <td>{{user.is_active}}</td>
                             <td><img src="{{user.photo_url}}" class="bd-placeholder-img mr-2 rounded" width="32"
                                     height="32"></td>
+                            <td>{{user.academy}}</td>
                         </tr>
                         {%endfor%}
                     </tbody>

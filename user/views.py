@@ -45,14 +45,14 @@ def logout(request):
         return HttpResponseRedirect("/")
 
 
-# def admim_charts(request):
+# def admin_charts(request):
 #     if request.method == "GET" and request.user.is_authenticated:
 #         return render(request, "Admin-Charts.html")
 #     else:
 #         return render(request, "Admin-404.html")
 
 
-def admim_comments(request):
+def admin_comments(request):
     if request.method == "GET" and request.user.is_authenticated:
         comments = comment.objects.all()
         return render(request, "Admin-Comments.html", {"comments": comments})
@@ -60,7 +60,7 @@ def admim_comments(request):
         return render(request, "Admin-404.html")
 
 
-def admim_users(request):
+def admin_users(request):
     if request.method == "GET" and request.user.is_authenticated:
         users = user.objects.all()
         return render(request, "Admin-Users.html", {"users": users})
@@ -111,21 +111,56 @@ def list_comment(request):
             {"by_time": comment_by_time, "by_hot": comment_by_hot_rate},
         )
 
+
 def like_comment(request):
     if request.method == "POST":
-        comment_id=request.POST["comment_id"]
+        comment_id = request.POST["comment_id"]
         target_comment = comment.objects.get(comment_id=str(comment_id))
-        target_comment.comment_hot_rate+=1
+        target_comment.comment_hot_rate += 1
         target_comment.save()
         return HttpResponseRedirect("/BBS")
     else:
         return render(request, "Front-404.html")
 
+
 def information(request):
     if request.method == "POST" and request.user.is_authenticated:
-        return render(request, "information.html")
+        print(request.POST)
+        message = None
+        name = request.POST.get("name")
+        password_old = request.POST.get("password_old")
+        password_new = request.POST.get("password_new")
+        password_verify = request.POST.get("password_verify")
+        photo_url = request.POST.get("photo_url")
+        email = request.POST.get("email")
+        academy = request.POST.get("academy")
+
+        if name != request.user.username and user.objects.filter(username=name):
+            message = "用户名已被使用，换一个吧"
+            return render(request, "information.html", {"message": message})
+
+        if password_old and password_new != password_verify:
+            message = "新旧密码不一致"
+            return render(request, "information.html", {"message": message})
+
+        if password_old and not check_password(password_old,request.user.password):
+            message = "旧密码错误，请重新输入"
+            return render(request, "information.html", {"message": message})
+
+        else:
+            message = "修改成功"
+            if email:
+                request.user.email = email
+            if password_old:
+                request.user.password = make_password(password_new)
+            request.user.username = name
+            # request.user.password=password
+            request.user.photo_url = photo_url
+            request.user.academy = academy
+            request.user.save()
+            return render(request, "information.html", {"message": message})
+            return HttpResponseRedirect("/user/login/")
     elif request.method == "GET" and request.user.is_authenticated:
         return render(request, "information.html")
     else:
         return render(request, "Front-404.html")
-    

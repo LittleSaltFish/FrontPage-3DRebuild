@@ -61,6 +61,8 @@
         <div class="container">
             <nav class="nav nav-underline">
                 {%if user.is_authenticated %}
+                <img src="{{user.photo_url}}" class="bd-placeholder-img mr-2 rounded align-self-center bg-white"
+                    width="20" height="20">
                 <a class="nav-link active" href="#">欢迎，{{user.username}}！</a>
                 <a class="nav-link" href="#" aria-disabled="true" data-toggle="modal"
                     data-target="#sing-out-identify">退出登录</a>

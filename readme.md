@@ -99,3 +99,18 @@
 ![3.83修改2](https://pic.imgdb.cn/item/60a211ad6ae4f77d35844008.jpg)
 
 ![3.83修改3](https://pic.imgdb.cn/item/60a21a296ae4f77d35d958dc.jpg)
+
+### Version3.9 Stable
+
+1. 完成了用户修改个人信息页面
+2. 增加了首页用户头像
+3. 增加了用户所在学院
+4. 增加了后台页的icon
+
+![](https://pic.imgdb.cn/item/60a2898d6ae4f77d35dce6eb.jpg)
+
+![](https://pic.imgdb.cn/item/60a29a2a6ae4f77d35d16a9c.jpg)
+
+![](https://pic.imgdb.cn/item/60a289e16ae4f77d35e1f6ba.jpg)
+
+![](https://pic.imgdb.cn/item/60a28ba56ae4f77d35fdf9b2.jpg)
