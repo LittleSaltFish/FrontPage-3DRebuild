@@ -95,7 +95,7 @@ def make_comment(request):
 
 
 def list_comment(request):
-    if request.method == "GET":
+    if request.method == "GET" and request.user.is_authenticated:
         comment_by_time = comment.objects.all().order_by("-create_time")[:20]
         comment_by_hot_rate = comment.objects.all().order_by("-comment_hot_rate")[:20]
 
@@ -110,6 +110,8 @@ def list_comment(request):
             "BBS.html",
             {"by_time": comment_by_time, "by_hot": comment_by_hot_rate},
         )
+    else:
+        return render(request, "Front-404.html")
 
 
 def like_comment(request):
@@ -125,7 +127,7 @@ def like_comment(request):
 
 def information(request):
     if request.method == "POST" and request.user.is_authenticated:
-        print(request.POST)
+        # print(request.POST)
         message = None
         name = request.POST.get("name")
         password_old = request.POST.get("password_old")
@@ -154,7 +156,6 @@ def information(request):
             if password_old:
                 request.user.password = make_password(password_new)
             request.user.username = name
-            # request.user.password=password
             request.user.photo_url = photo_url
             request.user.academy = academy
             request.user.save()
