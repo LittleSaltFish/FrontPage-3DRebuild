@@ -2,10 +2,13 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser
 from tinymce.models import HTMLField
 from django.conf import settings
+import time
 
 
 class user(AbstractUser):
     photo_url = models.CharField(max_length=200, verbose_name="头像url")
+    academy = models.CharField(max_length=200, verbose_name="所在组织",default="未选择")
+    # online_time = models.CharField(verbose_name="在线时间",default="")
 
 
 class comment(models.Model):

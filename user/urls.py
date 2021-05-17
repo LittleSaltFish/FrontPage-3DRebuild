@@ -12,4 +12,5 @@ urlpatterns = [
     path("comments/", views.admim_comments, name="admim_comments"),
     path("users/", views.admim_users, name="admim_users"),
     path("LikeComment/", views.like_comment, name="like_comment"),
+    path("information/", views.information, name="information"),
 ]

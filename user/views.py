@@ -120,3 +120,12 @@ def like_comment(request):
         return HttpResponseRedirect("/BBS")
     else:
         return render(request, "Front-404.html")
+
+def information(request):
+    if request.method == "POST" and request.user.is_authenticated:
+        return render(request, "information.html")
+    elif request.method == "GET" and request.user.is_authenticated:
+        return render(request, "information.html")
+    else:
+        return render(request, "Front-404.html")
+    

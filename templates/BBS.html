@@ -17,10 +17,11 @@
         {%if time.is_delete is False %}
         <div class="media text-muted pt-3">
             {%if time.user_id is None%}
-            <img src="https://img.imgdb.cn/item/6092c5fdd1a9ae528ff71dd9.png" class="bd-placeholder-img mr-2 rounded"
+            <img src="https://img.imgdb.cn/item/6092c5fdd1a9ae528ff71dd9.png"
+                class="bd-placeholder-img mr-2 rounded  mt-4"
                 width="48" height="48">
             {%else%}
-            <img src="{{time.user_photo_url}}" class="bd-placeholder-img mr-2 rounded" width="48" height="48">
+            <img src="{{time.user_photo_url}}" class="bd-placeholder-img mr-2 rounded mt-4" width="48" height="48">
             {% endif %}
             <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
                 <div class="d-flex justify-content-between align-items-center w-100">
@@ -44,7 +45,7 @@
                         </div>
                     </form>
                 </div>
-                <span class="d-block w-75">{{time.comment_content|safe}}</span>
+                <span class="d-block w-75" style="font-size: 130%;">{{time.comment_content|safe}}</span>
             </div>
         </div>
         {%endif%}
@@ -61,10 +62,11 @@
         <div class="media text-muted pt-3">
 
             {%if hot.user_id is None%}
-            <img src="https://img.imgdb.cn/item/6092c5fdd1a9ae528ff71dd9.png" class="bd-placeholder-img mr-2 rounded"
+            <img src="https://img.imgdb.cn/item/6092c5fdd1a9ae528ff71dd9.png"
+                class="bd-placeholder-img mr-2 rounded mt-4"
                 width="48" height="48">
             {%else%}
-            <img src="{{hot.user_photo_url}}" class="bd-placeholder-img mr-2 rounded" width="48" height="48">
+            <img src="{{hot.user_photo_url}}" class="bd-placeholder-img mr-2 rounded mt-4" width="48" height="48">
             {% endif %}
 
             <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
@@ -89,7 +91,7 @@
                         </div>
                     </form>
                 </div>
-                <span class="d-block w-75">{{hot.comment_content|safe}}</span>
+                <span class="d-block w-75" style="font-size: 130%;">{{hot.comment_content|safe}}</span>
             </div>
         </div>
         {%endif%}

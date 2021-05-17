@@ -21,8 +21,8 @@ from user.views import list_comment
 
 urlpatterns = [
     path('', views.home, name="home"),
-    path('admin/', admin.site.urls),
-    path('BBS/', list_comment),
+    path('admin/', admin.site.urls, name="admin"),
+    path('BBS/', list_comment, name="BBS"),
     path('zone1/', views.zone1, name="zone1"),
     path('zone2/', views.zone2, name="zone2"),
     path('zone3/', views.zone3, name="zone3"),
