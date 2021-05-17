@@ -23,10 +23,10 @@ urlpatterns = [
     path('', views.home, name="home"),
     path('admin/', admin.site.urls),
     path('BBS/', list_comment),
-    path('zone1/', views.zone1),
-    path('zone2/', views.zone2),
-    path('zone3/', views.zone3),
-    path('zone4/', views.zone4),
+    path('zone1/', views.zone1, name="zone1"),
+    path('zone2/', views.zone2, name="zone2"),
+    path('zone3/', views.zone3, name="zone3"),
+    path('zone4/', views.zone4, name="zone4"),
     path('user/', include(('user.urls','user'))),  # 用户url
     path('tinymce/', include('tinymce.urls'))
 ]
