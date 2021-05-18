@@ -163,9 +163,9 @@ def like_comment(request):
         target_comment = comment.objects.get(comment_id=str(comment_id))
         target_comment.comment_hot_rate += 1
         target_comment.save()
-        if request.POST["root_url_type"]=="normal":
+        if request.POST["root_url_type"] == "normal":
             return HttpResponseRedirect("/BBS")
-        elif request.POST["root_url_type"]=="hot":
+        elif request.POST["root_url_type"] == "hot":
             return HttpResponseRedirect("/HotBBS")
         else:
             return render(request, "Front-404.html")
@@ -235,10 +235,8 @@ def MyComments(request):
         comments = comment.objects.filter(user_id_id=request.user.id).order_by(
             "-create_time"
         )
-        LikeCount = (
-            comment.objects.filter(user_id_id=request.user.id)
-            .filter(is_delete=False)
-            .aggregate(num=Sum("comment_hot_rate"))
+        LikeCount = comments.filter(is_delete=False).aggregate(
+            num=Sum("comment_hot_rate")
         )
         size = len(comments)
         return render(

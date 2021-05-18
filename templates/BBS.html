@@ -19,9 +19,9 @@
         <div class="media text-muted border-bottom border-gray py-3 d-flex align-items-center">
             {%if time.user_id is None%}
             <img src="https://img.imgdb.cn/item/6092c5fdd1a9ae528ff71dd9.png"
-                class="bd-placeholder-img mx-2 my-2 rounded d-flex align-self-start" width="48" height="48">
+                class="bd-placeholder-img ml-3 mr-4 my-3 rounded d-flex align-self-start" width="48" height="48">
             {%else%}
-            <img src="{{time.user_photo_url}}" class="bd-placeholder-img mx-2 my-2 rounded d-flex align-self-start"
+            <img src="{{time.user_photo_url}}" class="bd-placeholder-img ml-3 mr-4 my-3 rounded d-flex align-self-start"
                 width="48" height="48">
             {% endif %}
             <div class="media-body pb-3 mb-0 small lh-125">
@@ -40,7 +40,7 @@
                 {% csrf_token %}
                 <input type="hidden" name="comment_id" value="{{time.comment_id}}">
                 <input type="hidden" name="root_url_type" value="normal">
-                <button class="btn btn-outline-success btn-sm mx-2" type="submit">
+                <button class="btn btn-outline-success btn-sm mx-4" type="submit">
                     <i class="fa fa-thumbs-up fa-1x text-gray-500"></i>
                     {{time.comment_hot_rate}}点赞
                 </button>

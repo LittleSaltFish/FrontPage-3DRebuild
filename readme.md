@@ -115,9 +115,20 @@
 
 ![](https://pic.imgdb.cn/item/60a28ba56ae4f77d35fdf9b2.jpg)
 
-### Version 3.91
+### Version 4.0
 
-1. 评论管理(用户)
-2. 登录逻辑修改
-3. 个人信息修改bug修复
-4. 评论删除与恢复
+1. (用户)评论管理删除与恢复
+2. 登录逻辑修改-登录后必须完善个人信息
+3. 个人信息修改bug修复-name问题
+4. 将导航栏进行了整理
+5. 修改了BBS评论的布局，美化了点赞样式
+6. BBS划分为热评和时评
+7. 修复管理后台-普通用户未鉴权问题
+
+![](https://pic.imgdb.cn/item/60a3d1666ae4f77d35401a3f.jpg)
+
+![](https://pic.imgdb.cn/item/60a3d2906ae4f77d3550e631.jpg)
+
+![](https://pic.imgdb.cn/item/60a3d2bd6ae4f77d355368e2.jpg)
+
+![](https://pic.imgdb.cn/item/60a3d3016ae4f77d35574b01.jpg)
