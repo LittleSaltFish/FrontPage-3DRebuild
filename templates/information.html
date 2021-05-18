@@ -53,35 +53,39 @@
             </form>
         </div> -->
     <div class="col-md-12 mt-4 mb-5">
-        {%if message and message == "修改成功"%}
+        {%if flag == "False"%}
         <div class="col-xl-15 col-lg-15 mb-3">
             <div class="card border-left-success shadow h-50 py-2">
                 <div class="card-body">
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
-                            <div class="h3 font-weight-bold text-success text-uppercase mb-1">
-                                修改成功</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">如果修改密码，请重新登录</div>
+                            <div class="h3 font-weight-bold text-danger text-uppercase mb-1">
+                                修改失败</div>
+                            {%if message%}
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{message}}</div>
+                            {%endif%}
                         </div>
                         <div class="col-auto">
-                            <i class="fa fa-lightbulb fa-2x text-gray-300"></i>
+                            <i class="fa fa-exclamation-triangle fa-2x text-gray-300"></i>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        {%elif message%}
+        {%elif flag == "True"%}
         <div class="col-xl-15 col-lg-15 mb-3">
             <div class="card border-left-warning shadow h-50 py-2">
                 <div class="card-body">
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
-                            <div class="h3 font-weight-bold text-danger text-uppercase mb-1">
-                                修改失败</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{message}}</div>
+                            <div class="h3 font-weight-bold text-success text-uppercase mb-1">
+                                {{message}}</div>
+                            {%if message2%}
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{message2}}</div>
+                            {%endif%}
                         </div>
                         <div class="col-auto">
-                            <i class="fa fa-exclamation-triangle fa-2x text-gray-300"></i>
+                            <i class="fa fa-lightbulb fa-2x text-gray-300"></i>
                         </div>
                     </div>
                 </div>
@@ -290,8 +294,7 @@
             <div class="mb-3">
                 <p>
                     <a class="btn btn-block btn-outline-danger" data-toggle="collapse" href="#collapseExample"
-                        role="button"
-                        aria-expanded="false" aria-controls="collapseExample">
+                        role="button" aria-expanded="false" aria-controls="collapseExample">
                         修改密码(可选)
                     </a>
                 </p>

@@ -3,10 +3,12 @@ from django.contrib import auth
 from django.contrib.auth.hashers import make_password, check_password
 from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render
-from user.models import user, comment
+from user.models import comment
 from django.utils import timezone
 from django.db import models
-
+from user.models import user as UserModel
+# 此处user必须改名，否则imformation处会报错：
+# local variable 'user' referenced before assignment
 
 def register(request):
     if request.method == "GET":
@@ -15,12 +17,18 @@ def register(request):
         message = None
         name = request.POST.get("name")
         password = request.POST.get("password")
-        if user.objects.filter(username=name):
+        if UserModel.objects.filter(username=name):
             message = "用户名已被使用，换一个吧"
             return render(request, "register.html", {"message": message})
         else:
-            user.objects.create_user(username=name, password=password)
-            return HttpResponseRedirect("/user/login/")
+            flag="True"
+            message="注册成功"
+            message2="请进一步完善信息"
+            UserModel.objects.create_user(username=name, password=password)
+            user = auth.authenticate(username=name, password=password)
+            auth.login(request, user)
+            return render(request, "information.html", {"message": message,"message2": message2,"flag":flag})
+            # return HttpResponseRedirect("/user/login/")
 
 
 def login(request):
@@ -62,7 +70,7 @@ def admin_comments(request):
 
 def admin_users(request):
     if request.method == "GET" and request.user.is_authenticated:
-        users = user.objects.all()
+        users = UserModel.objects.all()
         return render(request, "Admin-Users.html", {"users": users})
     else:
         return render(request, "Admin-404.html")
@@ -75,8 +83,8 @@ def make_comment(request):
         )
         user_name = request.POST["user_name"]
         user_id_str = request.POST["user_id"]
-        user_id = user.objects.filter(id=user_id_str).first()
-        user_photo_url = user.objects.values("photo_url").get(id=user_id_str)[
+        user_id = UserModel.objects.filter(id=user_id_str).first()
+        user_photo_url = UserModel.objects.values("photo_url").get(id=user_id_str)[
             "photo_url"
         ]
 
@@ -102,7 +110,7 @@ def list_comment(request):
         # for i in range(len(comment_by_hot_rate)):
         #     id= comment_by_hot_rate[i].user_id_id
         #     print(id)
-        #     if user.objects.filter(username=id).is_delete:
+        #     if UserModel.objects.filter(username=id).is_delete:
         #         comment_by_hot_rate[i].user_id=None
 
         return render(
@@ -137,19 +145,23 @@ def information(request):
         email = request.POST.get("email")
         academy = request.POST.get("academy")
 
-        if name != request.user.username and user.objects.filter(username=name):
+        if name != request.user.username and UserModel.objects.filter(username=name):
+            flag="False"
             message = "用户名已被使用，换一个吧"
-            return render(request, "information.html", {"message": message})
+            return render(request, "information.html", {"message": message,"flag":flag})
 
         if password_old and password_new != password_verify:
+            flag="False"
             message = "新旧密码不一致"
-            return render(request, "information.html", {"message": message})
+            return render(request, "information.html", {"message": message,"flag":flag})
 
         if password_old and not check_password(password_old,request.user.password):
+            flag="False"
             message = "旧密码错误，请重新输入"
-            return render(request, "information.html", {"message": message})
+            return render(request, "information.html", {"message": message,"flag":flag})
 
         else:
+            flag="True"
             message = "修改成功"
             if email:
                 request.user.email = email
@@ -159,9 +171,20 @@ def information(request):
             request.user.photo_url = photo_url
             request.user.academy = academy
             request.user.save()
-            return render(request, "information.html", {"message": message})
-            return HttpResponseRedirect("/user/login/")
+            if password_old:
+                user = auth.authenticate(username=name, password=password_new)
+                auth.login(request, user)
+            return render(request, "information.html", {"message": message,"flag":flag})
+            # return HttpResponseRedirect("/user/login/")
     elif request.method == "GET" and request.user.is_authenticated:
         return render(request, "information.html")
     else:
         return render(request, "Front-404.html")
+
+
+def MyComments(request):
+    if request.method == "GET" and request.user.is_authenticated:
+        comments=comment.objects.filter(user_id_id=request.user.id).order_by("-create_time")
+        size=len(comments)
+        print(comments)
+        return render(request,"MyComments.html",{"comments":comments,"size":size})

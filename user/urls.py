@@ -13,4 +13,5 @@ urlpatterns = [
     path("users/", views.admin_users, name="admin_users"),
     path("LikeComment/", views.like_comment, name="like_comment"),
     path("information/", views.information, name="information"),
+    path("mycomment/", views.MyComments, name="MyComments"),
 ]

@@ -1,0 +1,79 @@
+{% extends 'base-front.html' %}
+{% load static %}
+
+{%block content%}
+<main role="main" class="container">
+    <div class="col-md-12 order-md-2 mt-5 mb-5">
+        <h4 class="d-flex justify-content-between align-items-center mb-3">
+            <span class="text-muted">我的评论</span>
+            <span class="badge badge-secondary badge-pill">总计：{{size}}条</span>
+        </h4>
+        <ul class="list-group mb-3">
+            {%for comment in comments%}
+            <li class="list-group-item d-flex justify-content-between lh-condensed">
+                <div>
+                    <h6 class="my-0">{{comment.comment_content|safe}}</h6>
+                    <small class="text-muted">{{comment.create_time}}</small>
+                </div>
+                <div class="d-flex justify-content-end">
+                    <div class="col-auto">
+                        <i class="fa fa-thumbs-up fa-1x text-gray-300"></i>
+                    </div>
+                    <span class="text-muted">
+                        {{comment.comment_hot_rate}}
+                    </span>
+                </div>
+            </li>
+            {%endfor%}
+            <!-- <li class="list-group-item d-flex justify-content-between bg-light">
+                <div class="text-success">
+                    <h6 class="my-0">Promo code</h6>
+                    <small>EXAMPLECODE</small>
+                </div>
+                <span class="text-success">-$5</span>
+            </li> -->
+            <li class="list-group-item d-flex justify-content-between">
+                <span>Total (USD)</span>
+                <strong>$20</strong>
+            </li>
+        </ul>
+
+        <form class="card p-2">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Promo code">
+                <div class="input-group-append">
+                    <button type="submit" class="btn btn-secondary">Redeem</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</main>
+
+{%endblock%}
+
+{%block custom_css%}
+<link href="{% static 'css/BBS.css' %}" rel="stylesheet">
+<link href="{% static 'css/blog.css' %}" rel="stylesheet">
+<link href="{% static 'css/all.min.css' %}" rel="stylesheet" type="text/css">
+<style>
+    .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+
+    @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+            font-size: 3.5rem;
+        }
+    }
+
+</style>
+{%endblock%}
+
+{%block custom_js%}
+<!-- <script src="{% static 'js/form-validation.js' %}"></script> -->
+{%endblock%}
