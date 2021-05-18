@@ -57,31 +57,58 @@
         </div>
     </header>
 
-    <div class="nav-scroller bg-white shadow-sm">
+    <div class="nav bg-white shadow-sm">
         <div class="container">
             <nav class="nav nav-underline">
                 {%if user.is_authenticated %}
                 <img src="{{user.photo_url}}" class="bd-placeholder-img mr-2 rounded align-self-center bg-white"
                     width="20" height="20">
                 <a class="nav-link active" href="#">欢迎，{{user.username}}！</a>
-                <a class="nav-link" href="#" aria-disabled="true" data-toggle="modal"
-                    data-target="#sing-out-identify">退出登录</a>
-                <a class="nav-link" href="{%url 'user:information'%}">修改资料</a>
-                <a class="nav-link" href="{%url 'home'%}">回到首页</a>
-                <a class="nav-link" href="{%url 'BBS'%}">进入论坛</a>
-                <a class="nav-link" href="{%url 'user:MyComments'%}">我的评论</a>
-                <a class="nav-link" href="#">
+                <!-- <a class="nav-link" href="#" aria-disabled="true" data-toggle="modal"
+                    data-target="#sing-out-identify">退出登录</a> -->
+                <!-- <a class="nav-link" href="#">
                     未读通知
                     <span class="badge badge-pill bg-light align-text-bottom">27</span>
-                </a>
-                <!-- <a class="nav-link" href="#">我的好友</a>
-                <a class="nav-link" href="#">所在组织</a>
-                <a class="nav-link" href="#">我的模型</a> -->
-                <!-- <a class="nav-link" href="#">Link</a> -->
+                </a> -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="guide" role="button"
+                        data-toggle="dropdown" aria-expanded="false">
+                        页面导航
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="guide">
+                        <a class="dropdown-item" href="{%url 'home'%}">回到首页</a>
+                        <a class="dropdown-item" href="{%url 'BBS'%}">进入论坛</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="AccountSetting" role="button"
+                        data-toggle="dropdown" aria-expanded="false">
+                        我的账户
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="AccountSetting">
+                        <a class="dropdown-item" href="{%url 'user:MyComments'%}">我的评论</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="{%url 'user:information'%}">修改资料</a>
+                        <a class="dropdown-item" href="#" aria-disabled="true" data-toggle="modal"
+                            data-target="#sing-out-identify">退出登录</a>
+                    </div>
+                </li>
                 {%if user.is_staff %}
-                <a class="nav-link" href="/user/users">用户管理</a>
+                <!-- <a class="nav-link" href="/user/users">用户管理</a>
                 <a class="nav-link" href="/user/comments">评论管理</a>
-                <a class="nav-link" href="/admin">后台管理</a>
+                <a class="nav-link" href="/admin">后台管理</a> -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="ManageList" role="button" data-toggle="dropdown"
+                        aria-expanded="false">
+                        站点管理
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="ManageList">
+                        <a class="dropdown-item" href="/admin">后台管理</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="{%url 'user:admin_users'%}">用户管理</a>
+                        <a class="dropdown-item" href="{%url 'user:admin_comments'%}">评论管理</a>
+                    </div>
+                </li>
                 {% endif %}
                 {% else %}
                 <a class="nav-link active" href="#">欢迎，访客！</a>
