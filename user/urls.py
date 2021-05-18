@@ -14,4 +14,6 @@ urlpatterns = [
     path("LikeComment/", views.like_comment, name="like_comment"),
     path("information/", views.information, name="information"),
     path("mycomment/", views.MyComments, name="MyComments"),
+    # path("delcomment/", views.DelComment, name="DelComment"),
+    path("reversecomment/", views.ReverseComment, name="ReverseComment"),
 ]

@@ -114,3 +114,10 @@
 ![](https://pic.imgdb.cn/item/60a289e16ae4f77d35e1f6ba.jpg)
 
 ![](https://pic.imgdb.cn/item/60a28ba56ae4f77d35fdf9b2.jpg)
+
+### Version 3.91
+
+1. 评论管理(用户)
+2. 登录逻辑修改
+3. 个人信息修改bug修复
+4. 评论删除与恢复

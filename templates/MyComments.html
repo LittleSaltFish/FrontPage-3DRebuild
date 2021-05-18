@@ -8,22 +8,46 @@
             <span class="text-muted">我的评论</span>
             <span class="badge badge-secondary badge-pill">总计：{{size}}条</span>
         </h4>
+        {%if size != 0%}
         <ul class="list-group mb-3">
             {%for comment in comments%}
-            <li class="list-group-item d-flex justify-content-between lh-condensed">
-                <div>
-                    <h6 class="my-0">{{comment.comment_content|safe}}</h6>
-                    <small class="text-muted">{{comment.create_time}}</small>
-                </div>
-                <div class="d-flex justify-content-end">
-                    <div class="col-auto">
-                        <i class="fa fa-thumbs-up fa-1x text-gray-300"></i>
+            <form method="POST" action="{% url 'user:ReverseComment'%}">
+                {% csrf_token %}
+                <li class="list-group-item d-flex justify-content-between lh-condensed">
+                    {%if comment.is_delete is False%}
+                    <div>
+                        <h6 class="my-0">{{comment.comment_content|safe}}</h6>
+                        <small class="text-muted">{{comment.create_time}}</small>
                     </div>
-                    <span class="text-muted">
-                        {{comment.comment_hot_rate}}
-                    </span>
-                </div>
-            </li>
+                    <div class="d-flex justify-content-end align-items-center">
+                        <div class="col-auto">
+                            <i class="fa fa-thumbs-up fa-1x text-gray-500"></i>
+                        </div>
+                        <span class="text-muted mr-2">
+                            {{comment.comment_hot_rate}}
+                        </span>
+                        <button type="submit" class="btn btn-outline-danger">删除</button>
+                    </div>
+                    {%else%}
+                    <div>
+
+                        <h6 class="my-0 text-muted"><del>{{comment.comment_content|safe}}</del></h6>
+
+                        <small class="text-muted ">{{comment.create_time}}</small>
+                    </div>
+                    <div class="d-flex justify-content-end align-items-center">
+                        <div class="col-auto">
+                            <i class="fa fa-thumbs-up fa-1x text-gray-500"></i>
+                        </div>
+                        <span class="text-muted mr-2">
+                            {{comment.comment_hot_rate}}
+                        </span>
+                        <button type="submit" class="btn btn-outline-success">恢复</button>
+                    </div>
+                    {%endif%}
+                    <input type="hidden" name="DelID" value="{{comment.comment_id}}">
+                </li>
+            </form>
             {%endfor%}
             <!-- <li class="list-group-item d-flex justify-content-between bg-light">
                 <div class="text-success">
@@ -33,19 +57,27 @@
                 <span class="text-success">-$5</span>
             </li> -->
             <li class="list-group-item d-flex justify-content-between">
-                <span>Total (USD)</span>
-                <strong>$20</strong>
+                <span class="text-success">总有效获赞数</span>
+                <strong class="text-success">{{LikeCount}}</strong>
             </li>
         </ul>
+        {%else%}
+        <div class="text-center m-5">
+            <div class="error mx-auto" data-text="T^T">T^T</div>
+            <p class="lead text-gray-800 mb-5">一条评论也没有...</p>
+            <p class="text-gray-500 m-3">可怜此地无车马，颠倒青苔落绛英</p>
+            <a href="{%url 'BBS'%}">&rarr; 去论坛发表你的第一篇评论吧&larr; </a>
+        </div>
+        {%endif%}
 
-        <form class="card p-2">
+        <!-- <form class="card p-2">
             <div class="input-group">
                 <input type="text" class="form-control" placeholder="Promo code">
                 <div class="input-group-append">
                     <button type="submit" class="btn btn-secondary">Redeem</button>
                 </div>
             </div>
-        </form>
+        </form> -->
     </div>
 </main>
 
@@ -55,6 +87,9 @@
 <link href="{% static 'css/BBS.css' %}" rel="stylesheet">
 <link href="{% static 'css/blog.css' %}" rel="stylesheet">
 <link href="{% static 'css/all.min.css' %}" rel="stylesheet" type="text/css">
+<link href="{% static 'css/sb-admin-2.min.css' %}" rel="stylesheet">
+<link href="{% static 'css/dataTables.bootstrap4.min.css' %}" rel="stylesheet">
+<link href="{% static 'css/fontawesome.min.css' %}" rel="stylesheet">
 <style>
     .bd-placeholder-img {
         font-size: 1.125rem;
@@ -75,5 +110,9 @@
 {%endblock%}
 
 {%block custom_js%}
-<!-- <script src="{% static 'js/form-validation.js' %}"></script> -->
+<script src="{% static 'js/jquery.easing.min.js' %}"></script>
+<script src="{% static 'js/sb-admin-2.min.js' %}"></script>
+<script src="{% static 'js/jquery.dataTables.min.js' %}"></script>
+<script src="{% static 'js/dataTables.bootstrap4.min.js' %}"></script>
+<script src="{% static 'js/datatables-demo.js' %}"></script>
 {%endblock%}

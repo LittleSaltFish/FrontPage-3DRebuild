@@ -7,8 +7,11 @@ from user.models import comment
 from django.utils import timezone
 from django.db import models
 from user.models import user as UserModel
+from django.db.models import Sum
+
 # 此处user必须改名，否则imformation处会报错：
 # local variable 'user' referenced before assignment
+
 
 def register(request):
     if request.method == "GET":
@@ -21,13 +24,17 @@ def register(request):
             message = "用户名已被使用，换一个吧"
             return render(request, "register.html", {"message": message})
         else:
-            flag="True"
-            message="注册成功"
-            message2="请进一步完善信息"
+            flag = "True"
+            message = "注册成功"
+            message2 = "请进一步完善信息"
             UserModel.objects.create_user(username=name, password=password)
             user = auth.authenticate(username=name, password=password)
             auth.login(request, user)
-            return render(request, "information.html", {"message": message,"message2": message2,"flag":flag})
+            return render(
+                request,
+                "information.html",
+                {"message": message, "message2": message2, "flag": flag},
+            )
             # return HttpResponseRedirect("/user/login/")
 
 
@@ -61,7 +68,11 @@ def logout(request):
 
 
 def admin_comments(request):
-    if request.method == "GET" and request.user.is_authenticated:
+    if (
+        request.method == "GET"
+        and request.user.is_authenticated
+        and request.user.is_staff == True
+    ):
         comments = comment.objects.all()
         return render(request, "Admin-Comments.html", {"comments": comments})
     else:
@@ -69,7 +80,11 @@ def admin_comments(request):
 
 
 def admin_users(request):
-    if request.method == "GET" and request.user.is_authenticated:
+    if (
+        request.method == "GET"
+        and request.user.is_authenticated
+        and request.user.is_staff == True
+    ):
         users = UserModel.objects.all()
         return render(request, "Admin-Users.html", {"users": users})
     else:
@@ -146,22 +161,28 @@ def information(request):
         academy = request.POST.get("academy")
 
         if name != request.user.username and UserModel.objects.filter(username=name):
-            flag="False"
+            flag = "False"
             message = "用户名已被使用，换一个吧"
-            return render(request, "information.html", {"message": message,"flag":flag})
+            return render(
+                request, "information.html", {"message": message, "flag": flag}
+            )
 
         if password_old and password_new != password_verify:
-            flag="False"
+            flag = "False"
             message = "新旧密码不一致"
-            return render(request, "information.html", {"message": message,"flag":flag})
+            return render(
+                request, "information.html", {"message": message, "flag": flag}
+            )
 
-        if password_old and not check_password(password_old,request.user.password):
-            flag="False"
+        if password_old and not check_password(password_old, request.user.password):
+            flag = "False"
             message = "旧密码错误，请重新输入"
-            return render(request, "information.html", {"message": message,"flag":flag})
+            return render(
+                request, "information.html", {"message": message, "flag": flag}
+            )
 
         else:
-            flag="True"
+            flag = "True"
             message = "修改成功"
             if email:
                 request.user.email = email
@@ -174,7 +195,9 @@ def information(request):
             if password_old:
                 user = auth.authenticate(username=name, password=password_new)
                 auth.login(request, user)
-            return render(request, "information.html", {"message": message,"flag":flag})
+            return render(
+                request, "information.html", {"message": message, "flag": flag}
+            )
             # return HttpResponseRedirect("/user/login/")
     elif request.method == "GET" and request.user.is_authenticated:
         return render(request, "information.html")
@@ -184,7 +207,30 @@ def information(request):
 
 def MyComments(request):
     if request.method == "GET" and request.user.is_authenticated:
-        comments=comment.objects.filter(user_id_id=request.user.id).order_by("-create_time")
-        size=len(comments)
-        print(comments)
-        return render(request,"MyComments.html",{"comments":comments,"size":size})
+        comments = comment.objects.filter(user_id_id=request.user.id).order_by(
+            "-create_time"
+        )
+        LikeCount = (
+            comment.objects.filter(user_id_id=request.user.id)
+            .filter(is_delete=False)
+            .aggregate(num=Sum("comment_hot_rate"))
+        )
+        size = len(comments)
+        return render(
+            request,
+            "MyComments.html",
+            {"comments": comments, "size": size, "LikeCount": LikeCount["num"]},
+        )
+
+
+def ReverseComment(request):
+    if request.method == "POST" and request.user.is_authenticated:
+        print(request.POST)
+        DelID = request.POST.get("DelID")
+        TargetComment = comment.objects.filter(comment_id=DelID).first()
+        if TargetComment.user_id_id == request.user.id:
+            TargetComment.is_delete = not TargetComment.is_delete
+            TargetComment.save()
+        return HttpResponseRedirect("/user/mycomment/")
+    else:
+        return render(request, "Front-404.html")

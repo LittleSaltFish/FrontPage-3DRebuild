@@ -7,14 +7,36 @@
 <div class="container-fluid">
 
     <!-- 404 Error Text -->
-    <div class="text-center">
-        <div class="error mx-auto" data-text="未找到">未找到</div>
-        <p class="lead text-gray-800 mb-5">Page Not Found</p>
-        <p class="text-gray-500 mb-0">It looks like you found a glitch in the matrix...</p>
-        <a href="index.html">&larr; Back to Dashboard</a>
+    <div class="text-center m-5">
+        <div class="error mx-auto" data-text="404">404</div>
+        <p class="lead text-gray-800 mb-5">页面不见了...</p>
+        <p class="text-gray-500 m-3">争渡，争渡，误入藕花深处</p>
+        <a href="{%url 'home'%}">&larr; 回到首页</a>
     </div>
 
 </div>
 <!-- /.container-fluid -->
 
+{%endblock%}
+
+
+{%block sidebar%}
+<!-- Nav Item - Charts -->
+<li class="nav-item">
+    <a class="nav-link" href="/user/users">
+        <i class="fas fa-fw fa-chart-area"></i>
+        <span>用户管理</span></a>
+</li>
+<!-- Nav Item - Tables -->
+<li class="nav-item">
+    <a class="nav-link" href="/user/comments">
+        <i class="fas fa-fw fa-table"></i>
+        <span>评论管理</span></a>
+</li>
+<!-- Nav Item - Tables -->
+<li class="nav-item">
+    <a class="nav-link" href="/admin">
+        <i class="fas fa-fw fa-database"></i>
+        <span>后台管理</span></a>
+</li>
 {%endblock%}
