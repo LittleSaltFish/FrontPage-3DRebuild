@@ -120,7 +120,7 @@ def make_comment(request):
 def list_comment(request):
     if request.method == "GET" and request.user.is_authenticated:
         comment_by_time = comment.objects.all().order_by("-create_time")[:20]
-        comment_by_hot_rate = comment.objects.all().order_by("-comment_hot_rate")[:20]
+        # comment_by_hot_rate = comment.objects.all().order_by("-comment_hot_rate")[:20]
 
         # for i in range(len(comment_by_hot_rate)):
         #     id= comment_by_hot_rate[i].user_id_id
@@ -131,7 +131,27 @@ def list_comment(request):
         return render(
             request,
             "BBS.html",
-            {"by_time": comment_by_time, "by_hot": comment_by_hot_rate},
+            {"by_time": comment_by_time},
+        )
+    else:
+        return render(request, "Front-404.html")
+
+
+def list_comment_hot(request):
+    if request.method == "GET" and request.user.is_authenticated:
+        # comment_by_time = comment.objects.all().order_by("-create_time")[:20]
+        comment_by_hot = comment.objects.all().order_by("-comment_hot_rate")[:20]
+
+        # for i in range(len(comment_by_hot_rate)):
+        #     id= comment_by_hot_rate[i].user_id_id
+        #     print(id)
+        #     if UserModel.objects.filter(username=id).is_delete:
+        #         comment_by_hot_rate[i].user_id=None
+
+        return render(
+            request,
+            "HotBBS.html",
+            {"by_hot": comment_by_hot},
         )
     else:
         return render(request, "Front-404.html")
@@ -143,7 +163,12 @@ def like_comment(request):
         target_comment = comment.objects.get(comment_id=str(comment_id))
         target_comment.comment_hot_rate += 1
         target_comment.save()
-        return HttpResponseRedirect("/BBS")
+        if request.POST["root_url_type"]=="normal":
+            return HttpResponseRedirect("/BBS")
+        elif request.POST["root_url_type"]=="hot":
+            return HttpResponseRedirect("/HotBBS")
+        else:
+            return render(request, "Front-404.html")
     else:
         return render(request, "Front-404.html")
 

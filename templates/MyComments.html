@@ -5,7 +5,7 @@
 <main role="main" class="container">
     <div class="col-md-12 order-md-2 mt-5 mb-5">
         <h4 class="d-flex justify-content-between align-items-center mb-3">
-            <span class="text-muted">我的评论</span>
+            <span class="text-muted">我的留言</span>
             <span class="badge badge-secondary badge-pill">总计：{{size}}条</span>
         </h4>
         {%if size != 0%}
@@ -64,9 +64,9 @@
         {%else%}
         <div class="text-center m-5">
             <div class="error mx-auto" data-text="T^T">T^T</div>
-            <p class="lead text-gray-800 mb-5">一条评论也没有...</p>
+            <p class="lead text-gray-800 mb-5">一条留言也没有...</p>
             <p class="text-gray-500 m-3">可怜此地无车马，颠倒青苔落绛英</p>
-            <a href="{%url 'BBS'%}">&rarr; 去论坛发表你的第一篇评论吧&larr; </a>
+            <a href="{%url 'BBS'%}">&rarr; 去论坛发表你的第一篇留言吧&larr; </a>
         </div>
         {%endif%}
 

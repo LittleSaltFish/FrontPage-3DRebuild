@@ -17,12 +17,13 @@ from django.contrib import admin
 from django.urls import path,include
 from django.conf.urls import url
 from . import views
-from user.views import list_comment
+from user.views import list_comment,list_comment_hot
 
 urlpatterns = [
     path('', views.home, name="home"),
     path('admin/', admin.site.urls, name="admin"),
     path('BBS/', list_comment, name="BBS"),
+    path('HotBBS/', list_comment_hot, name="HotBBS"),
     path('zone1/', views.zone1, name="zone1"),
     path('zone2/', views.zone2, name="zone2"),
     path('zone3/', views.zone3, name="zone3"),
