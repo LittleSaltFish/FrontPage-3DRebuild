@@ -115,7 +115,7 @@
 
 ![](https://pic.imgdb.cn/item/60a28ba56ae4f77d35fdf9b2.jpg)
 
-### Version 4.0
+### Version 4.0 Stable
 
 1. (用户)评论管理删除与恢复
 2. 登录逻辑修改-登录后必须完善个人信息
@@ -132,3 +132,10 @@
 ![](https://pic.imgdb.cn/item/60a3d2bd6ae4f77d355368e2.jpg)
 
 ![](https://pic.imgdb.cn/item/60a3d3016ae4f77d35574b01.jpg)
+
+### Version 4.1 Stable
+
+1. 前端静态页面大修，调整了文案和页面分布，调整了宽度不一致问题
+2. 增加了文件下载，调整了模型链接
+
+![](https://pic.imgdb.cn/item/60a530486ae4f77d3570231b.jpg)

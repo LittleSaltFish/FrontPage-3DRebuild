@@ -14,20 +14,20 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path,include
+from django.urls import path, include
 from django.conf.urls import url
 from . import views
-from user.views import list_comment,list_comment_hot
+from user.views import list_comment, list_comment_hot
 
 urlpatterns = [
-    path('', views.home, name="home"),
-    path('admin/', admin.site.urls, name="admin"),
-    path('BBS/', list_comment, name="BBS"),
-    path('HotBBS/', list_comment_hot, name="HotBBS"),
-    path('zone1/', views.zone1, name="zone1"),
-    path('zone2/', views.zone2, name="zone2"),
-    path('zone3/', views.zone3, name="zone3"),
-    path('zone4/', views.zone4, name="zone4"),
-    path('user/', include(('user.urls','user'))),  # 用户url
-    path('tinymce/', include('tinymce.urls'))
+    path("", views.home, name="home"),
+    path("admin/", admin.site.urls, name="admin"),
+    path("BBS/", list_comment, name="BBS"),
+    path("HotBBS/", list_comment_hot, name="HotBBS"),
+    path("article0/", views.article0, name="article0"),
+    path("article1/", views.article1, name="article1"),
+    path("article2/", views.article2, name="article2"),
+    path("article3/", views.article3, name="article3"),
+    path("user/", include(("user.urls", "user"))),  # 用户url
+    path("tinymce/", include("tinymce.urls")),
 ]

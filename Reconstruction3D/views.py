@@ -4,17 +4,22 @@ from user.models import comment
 
 # Create your views here.
 
+
 def home(request):
-    return render(request,"index.html")
+    return render(request, "index.html")
 
-def zone4(request):
-    return render(request,"第四展区.html")
 
-def zone3(request):
-    return render(request,"第三展区.html")
+def article3(request):
+    return render(request, "3-师生成果.html")
 
-def zone2(request):
-    return render(request,"第二展区.html")
 
-def zone1(request):
-    return render(request,"第一展区.html")
+def article2(request):
+    return render(request, "2-建设成就.html")
+
+
+def article1(request):
+    return render(request, "1-发展历程.html")
+
+
+def article0(request):
+    return render(request, "0-操作指南.html")
