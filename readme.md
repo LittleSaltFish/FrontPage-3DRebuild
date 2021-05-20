@@ -148,3 +148,11 @@
 ![](https://pic.imgdb.cn/item/60a5d15b6ae4f77d35865c13.jpg)
 
 ![](https://pic.imgdb.cn/item/60a5d1826ae4f77d35879f5a.jpg)
+
+### Version 4.1 Stable
+
+1. 冗余代码删除
+2. 整理css、js多余调用
+3. 修复了修改个人信息中无密码漏洞
+4. 优化了管理员404时右上角显示
+5. 增加了修改个人信息页面的头像预览
