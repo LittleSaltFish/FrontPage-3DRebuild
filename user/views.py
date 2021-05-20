@@ -204,6 +204,13 @@ def information(request):
                 request, "information.html", {"message": message, "flag": flag}
             )
 
+        if password_old and password_new=="":
+            flag = "False"
+            message = "密码不可为空，请重新输入"
+            return render(
+                request, "information.html", {"message": message, "flag": flag}
+            )
+
         if password_old and password_new != password_verify:
             flag = "False"
             message = "新旧密码不一致"
@@ -217,7 +224,7 @@ def information(request):
             return render(
                 request, "information.html", {"message": message, "flag": flag}
             )
-
+            
         else:
             flag = "True"
             message = "修改成功"
@@ -260,7 +267,7 @@ def MyComments(request):
 
 def ReverseComment(request):
     if request.method == "POST" and request.user.is_authenticated:
-        print(request.POST)
+        # print(request.POST)
         DelID = request.POST.get("DelID")
         TargetComment = comment.objects.filter(comment_id=DelID).first()
         if TargetComment.user_id_id == request.user.id:
