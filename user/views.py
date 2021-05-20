@@ -18,16 +18,18 @@ def register(request):
         return render(request, "register.html")
     if request.method == "POST":
         message = None
-        name = request.POST.get("name")
+        StudentID = request.POST.get("StudentID")
         password = request.POST.get("password")
-        if UserModel.objects.filter(username=name):
-            message = "用户名已被使用，换一个吧"
+        tmpuser=UserModel.objects.filter(StudentID=StudentID).first()
+        if tmpuser:
+            message = "该学号已被注册，换一个吧"
             return render(request, "register.html", {"message": message})
         else:
+            name="用户"+str(StudentID)
             flag = "True"
             message = "注册成功"
             message2 = "请进一步完善信息"
-            UserModel.objects.create_user(username=name, password=password)
+            UserModel.objects.create_user(username=name, password=password,StudentID=StudentID)
             user = auth.authenticate(username=name, password=password)
             auth.login(request, user)
             return render(
@@ -42,9 +44,10 @@ def login(request):
     if request.method == "GET":
         return render(request, "login.html", {"message": None})
     if request.method == "POST":
-        name = request.POST.get("name")
+        StudentID = request.POST.get("StudentID")
         password = request.POST.get("password")
         # 验证用户名和密码，通过的话，返回User对象
+        name=UserModel.objects.filter(StudentID=StudentID).first().username
         user = auth.authenticate(username=name, password=password)
         if user:
             auth.login(request, user)
@@ -184,6 +187,7 @@ def information(request):
         photo_url = request.POST.get("photo_url")
         email = request.POST.get("email")
         academy = request.POST.get("academy")
+        # StudentID = request.POST.get("StudentID")
 
         if name != request.user.username and UserModel.objects.filter(username=name):
             flag = "False"

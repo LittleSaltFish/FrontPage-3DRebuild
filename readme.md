@@ -142,3 +142,7 @@
 5. 解决了页面底部按钮在移动端显示不正常问题
 
 ![](https://pic.imgdb.cn/item/60a530486ae4f77d3570231b.jpg)
+
+![](https://pic.imgdb.cn/item/60a5d15b6ae4f77d35865c13.jpg)
+
+![](https://pic.imgdb.cn/item/60a5d1826ae4f77d35879f5a.jpg)

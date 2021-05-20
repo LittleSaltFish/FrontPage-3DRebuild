@@ -29,6 +29,7 @@
                             <th>作者姓名</th>
                             <th>作者头像</th>
                             <th>所在学院</th>
+                            <th>学生学号</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -44,6 +45,7 @@
                             <td><img src="{{comment.user_photo_url}}" class="bd-placeholder-img mr-2 rounded" width="32"
                                     height="32"></td>
                             <td>{{user.academy}}</td>
+                            <td>{{user.StudentID}}</td>
                         </tr>
                         {%endfor%}
                     </tbody>

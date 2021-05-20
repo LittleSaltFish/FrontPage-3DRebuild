@@ -25,9 +25,10 @@
                             <th>创建时间</th>
                             <th>上次登录</th>
                             <th>管理状态</th>
-                            <th>是否活跃</th>
+                            <th>是否可用</th>
                             <th>用户头像</th>
                             <th>所在学院</th>
+                            <th>学生学号</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -42,6 +43,7 @@
                             <td><img src="{{user.photo_url}}" class="bd-placeholder-img mr-2 rounded" width="32"
                                     height="32"></td>
                             <td>{{user.academy}}</td>
+                            <td>{{user.StudentID}}</td>
                         </tr>
                         {%endfor%}
                     </tbody>

@@ -8,6 +8,7 @@ import time
 class user(AbstractUser):
     photo_url = models.CharField(max_length=200, verbose_name="头像url",default="https://img.imgdb.cn/item/60929de2d1a9ae528fbc42d5.png")
     academy = models.CharField(max_length=200, verbose_name="所在组织",default="未选择")
+    StudentID = models.BigIntegerField(verbose_name="学号",unique=True)
     # online_time = models.CharField(verbose_name="在线时间",default="")
 
 
