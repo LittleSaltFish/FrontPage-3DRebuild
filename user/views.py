@@ -20,16 +20,18 @@ def register(request):
         message = None
         StudentID = request.POST.get("StudentID")
         password = request.POST.get("password")
-        tmpuser=UserModel.objects.filter(StudentID=StudentID).first()
+        tmpuser = UserModel.objects.filter(StudentID=StudentID).first()
         if tmpuser:
             message = "该学号已被注册，换一个吧"
             return render(request, "register.html", {"message": message})
         else:
-            name="用户"+str(StudentID)
+            name = "用户" + str(StudentID)
             flag = "True"
             message = "注册成功"
             message2 = "请进一步完善信息"
-            UserModel.objects.create_user(username=name, password=password,StudentID=StudentID)
+            UserModel.objects.create_user(
+                username=name, password=password, StudentID=StudentID
+            )
             user = auth.authenticate(username=name, password=password)
             auth.login(request, user)
             return render(
@@ -47,7 +49,7 @@ def login(request):
         StudentID = request.POST.get("StudentID")
         password = request.POST.get("password")
         # 验证用户名和密码，通过的话，返回User对象
-        name=UserModel.objects.filter(StudentID=StudentID).first().username
+        name = UserModel.objects.filter(StudentID=StudentID).first().username
         user = auth.authenticate(username=name, password=password)
         if user:
             auth.login(request, user)
@@ -77,9 +79,13 @@ def admin_comments(request):
         and request.user.is_staff == True
     ):
         comments = comment.objects.all()
-        return render(request, "Admin-Comments.html", {"comments": comments})
+        return render(
+            request,
+            "Admin-Comments.html",
+            {"comments": comments, "authenticated": True},
+        )
     else:
-        return render(request, "Admin-404.html")
+        return render(request, "Admin-404.html", {"404": "1", "authenticated": False})
 
 
 def admin_users(request):
@@ -89,9 +95,11 @@ def admin_users(request):
         and request.user.is_staff == True
     ):
         users = UserModel.objects.all()
-        return render(request, "Admin-Users.html", {"users": users})
+        return render(
+            request, "Admin-Users.html", {"users": users, "authenticated": True}
+        )
     else:
-        return render(request, "Admin-404.html")
+        return render(request, "Admin-404.html", {"404": "1", "authenticated": False})
 
 
 def make_comment(request):
