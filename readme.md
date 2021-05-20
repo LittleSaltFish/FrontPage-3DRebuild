@@ -156,3 +156,7 @@
 3. 修复了修改个人信息中无密码漏洞
 4. 优化了管理员404时右上角显示
 5. 增加了修改个人信息页面的头像预览
+
+![](https://pic.imgdb.cn/item/60a684e46ae4f77d35213e95.jpg)
+
+![](https://pic.imgdb.cn/item/60a685296ae4f77d35244c5a.jpg)
