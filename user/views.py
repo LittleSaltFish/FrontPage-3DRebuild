@@ -48,8 +48,13 @@ def login(request):
     if request.method == "POST":
         StudentID = request.POST.get("StudentID")
         password = request.POST.get("password")
+        try:
+            name = UserModel.objects.filter(StudentID=StudentID).first().username
+        except:
+            message = "请检查用户名和密码"
+            return render(request, "login.html", {"message": message})
+
         # 验证用户名和密码，通过的话，返回User对象
-        name = UserModel.objects.filter(StudentID=StudentID).first().username
         user = auth.authenticate(username=name, password=password)
         if user:
             auth.login(request, user)
@@ -204,7 +209,7 @@ def information(request):
                 request, "information.html", {"message": message, "flag": flag}
             )
 
-        if password_old and password_new=="":
+        if password_old and password_new == "":
             flag = "False"
             message = "密码不可为空，请重新输入"
             return render(
@@ -224,7 +229,7 @@ def information(request):
             return render(
                 request, "information.html", {"message": message, "flag": flag}
             )
-            
+
         else:
             flag = "True"
             message = "修改成功"
