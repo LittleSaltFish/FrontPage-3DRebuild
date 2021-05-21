@@ -1,8 +1,6 @@
 # 3D重建项目-计设前端界面
 
-```
-[![simpleui](https://img.shields.io/badge/developing%20with-Simpleui-2077ff.svg)](https://github.com/newpanjing/simpleui)
-```
+[![simpleui](https://img.shields.io/badge/developing%20with-Simpleui-2077ff.svg)](https://github.com/newpanjing/simpleui)  [![python](https://img.shields.io/badge/python-%3E=3.7.x-green.svg)]()  [![simpleui](https://img.shields.io/badge/CSDN-%E5%92%B8%E9%B1%BC%E5%92%B8-66ccff)](https://blog.csdn.net/qq_43724306)
 
 ## TODO:
 
@@ -162,9 +160,12 @@
 5. 增加了修改个人信息页面的头像预览
 6. 修改了导航栏配色
 7. 修复了注册时错学号无法反馈的bug
+8. 更改了后台主题，调整了输入框大小
 
 ![](https://pic.imgdb.cn/item/60a684e46ae4f77d35213e95.jpg)
 
 ![](https://pic.imgdb.cn/item/60a685296ae4f77d35244c5a.jpg)
 
 ![](https://pic.imgdb.cn/item/60a7280c6ae4f77d359503ca.jpg)
+
+![](https://pic.imgdb.cn/item/60a75e6f6ae4f77d353ddbb3.jpg)
