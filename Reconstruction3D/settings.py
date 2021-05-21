@@ -32,6 +32,7 @@ ALLOWED_HOSTS = ["127.0.0.1", ".saltfish.link"]
 # Application definition
 
 INSTALLED_APPS = [
+    "simpleui",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -39,7 +40,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "tinymce",
-    "user"
+    "user",
 ]
 
 MIDDLEWARE = [
@@ -83,7 +84,7 @@ DATABASES = {
     }
 }
 
-AUTH_USER_MODEL = 'user.user'
+AUTH_USER_MODEL = "user.user"
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -136,7 +137,54 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 # 富文本编辑器配置
 TINYMCE_DEFAULT_CONFIG = {
     "width": 600,
-    "height": 800,
+    "height": 500,
     "language": "zh_CN",
     "plugins": "advlist,autolink,lists,link,image,charmap,print,preview,anchor,visualblocks,code,fullscreen,insertdatetime,media,table,paste,bbcode,help,wordcount,toc,link,autosave",
+}
+
+
+# SIMPLEUI配置
+SIMPLEUI_LOGO = "https://pic.imgdb.cn/item/60a74dc36ae4f77d35b77239.png"
+SIMPLEUI_HOME_INFO = False 
+SIMPLEUI_ANALYSIS = False 
+SIMPLEUI_DEFAULT_THEME = 'e-red.css'
+SIMPLEUI_CONFIG = {
+    # 是否使用系统默认菜单，自定义菜单时建议关闭。
+    'system_keep': False,
+    
+    # 用于菜单排序和过滤, 不填此字段为默认排序和全部显示。空列表[] 为全部不显示.
+    'menu_display': ['用户管理', '评论管理'],
+    
+    # 设置是否开启动态菜单, 默认为False. 如果开启, 则会在每次用户登陆时刷新展示菜单内容。
+    # 一般建议关闭。
+    'dynamic': False,
+    'menus': [
+        {
+            'app': 'user',
+            'name': '用户管理',
+            'icon': 'fa fa-th-list',
+            # 'icon': 'fas fa-user-shield',
+            'models': [
+                {
+                'name': '用户列表',
+                'icon': 'fa fa-user',
+                'url': '/admin/user/user/'
+                },
+            ]
+        },
+
+        {
+            'app': 'user',
+            'name': '评论管理',
+            'icon': 'fa fa-th-list',
+            'models': [
+                {
+                'name': '评论列表',
+                # 注意url按'/admin/应用名小写/模型名小写/'命名。 
+                'url': '/admin/user/comment/',
+                'icon': 'fa fa-comment'
+                },
+            ]
+        },
+    ]
 }

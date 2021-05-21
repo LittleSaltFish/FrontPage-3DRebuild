@@ -24,3 +24,16 @@ class comment(models.Model):
     )
     user_name = models.CharField(max_length=200)
     user_photo_url = models.CharField(max_length=200, verbose_name="头像url")
+    class Meta:
+        verbose_name = "评论"
+        verbose_name_plural = "评论"
+
+    def __str__(self):
+        RawContent=self.comment_content
+        ContentSize=len(RawContent)
+        precontent=self.user_name
+        if ContentSize>30:
+            precontent+="："+RawContent[:30]+"..."
+        else:
+            precontent+="："+RawContent
+        return precontent
