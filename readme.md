@@ -5,10 +5,12 @@
 [![python](https://img.shields.io/badge/python-%3E=3.7.x-green.svg)](https://www.python.org/)
 [![CSDN](https://img.shields.io/badge/CSDN-%E5%92%B8%E9%B1%BC%E5%92%B8-66ccff)](https://blog.csdn.net/qq_43724306)
 
-## TODO:
+## 测试用账号：
 
-1. 3D建模链接收集
-2. 建模文件获取
+| 学号 | 用户名  | 密码  | 等级     |
+| ---- | ------- | ----- | -------- |
+| 0    | admin   | admin | 管理员   |
+| 2    | test111 | 123   | 普通用户 |
 
 ## 更新日志：
 
@@ -146,7 +148,7 @@
 4. 解决了用户管理的表头问题
 5. 解决了页面底部按钮在移动端显示不正常问题
 6. 修改了管理员界面后台头像显示问题
-7. 调整了注册逻辑：只能用学号注册，注册后初始用户名为`用户+学号`
+7. 调整了注册逻辑：只能用学号注册，注册后初始用户名为 `用户+学号`
 
 ![](https://pic.imgdb.cn/item/60a530486ae4f77d3570231b.jpg)
 

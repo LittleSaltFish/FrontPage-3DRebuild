@@ -20,6 +20,9 @@ def register(request):
         message = None
         StudentID = request.POST.get("StudentID")
         password = request.POST.get("password")
+        if StudentID.isdigit() != True:
+            message = "请输入纯数字组成的学号"
+            return render(request, "register.html", {"message": message})
         tmpuser = UserModel.objects.filter(StudentID=StudentID).first()
         if tmpuser:
             message = "该学号已被注册，换一个吧"
@@ -50,8 +53,10 @@ def login(request):
         password = request.POST.get("password")
         try:
             name = UserModel.objects.filter(StudentID=StudentID).first().username
-        except:
-            message = "请检查用户名和密码"
+        except Exception as e:
+            # print(e)
+            # 一般是应对查无此人的情况
+            message = "请检查学号和密码"
             return render(request, "login.html", {"message": message})
 
         # 验证用户名和密码，通过的话，返回User对象
@@ -60,7 +65,7 @@ def login(request):
             auth.login(request, user)
             return HttpResponseRedirect("/")
         else:
-            message = "请检查用户名和密码"
+            message = "请检查学号和密码"
             return render(request, "login.html", {"message": message})
 
 
