@@ -5,6 +5,18 @@
 [![python](https://img.shields.io/badge/python-%3E=3.7.x-green.svg)](https://www.python.org/)
 [![CSDN](https://img.shields.io/badge/CSDN-%E5%92%B8%E9%B1%BC%E5%92%B8-66ccff)](https://blog.csdn.net/qq_43724306)
 
+## 依赖库安装：
+
+```
+pip install django-tinymce simpleui
+```
+
+## 修改配置项：
+
+修改 `./Reconstruction3D/settings.py` 文件中 `ALLOWED_HOSTS` 的内容
+
+`ALLOWED_HOSTS = ['*']` 时，为全部放行
+
 ## 测试用账号：
 
 | 学号 | 用户名  | 密码  | 等级     |
@@ -56,9 +68,9 @@
 
 ### Version3.3 Preview
 
-1. 用户逻辑基本实现闭环，网站动态化进度50%
-2. 上线了未完成的后台系统
-3. 更改了登录界面
+1. [ ] 用户逻辑基本实现闭环，网站动态化进度50%
+2. [ ] 上线了未完成的后台系统
+3. [ ] 更改了登录界面
 
 ### Version3.4 Preview
 
