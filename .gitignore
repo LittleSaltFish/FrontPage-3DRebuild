@@ -3,4 +3,4 @@
 .VSCodeCounter/*
 .history/*
 /user/migrations/*
-# .gitignore
+*.pyc

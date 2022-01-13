@@ -8,7 +8,8 @@
 ## 依赖库安装：
 
 ```
-pip install django-tinymce simpleui
+pip3 install django-tinymce simpleui 
+pip3 install django==2.2
 ```
 
 ## 修改配置项：
